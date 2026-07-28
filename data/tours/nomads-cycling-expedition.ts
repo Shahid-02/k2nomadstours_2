@@ -1,0 +1,60 @@
+import type { Tour } from "@/types/tour";
+
+export const nomadsCyclingExpedition: Tour = {
+  slug: "nomads-cycling-expedition",
+  title: "Nomads Cycling Expedition",
+  tagline: "A once-in-a-lifetime ride through the heart of the Karakoram",
+  category: "cycling",
+  route: ["Islamabad", "Skardu", "Shigar", "Gilgit", "Nagar", "Karimabad", "Gulmit", "Passu", "Sost", "Khunjerab Pass", "Islamabad"],
+  durationDays: { min: 15, max: 15 },
+  style: "Supported Endurance Cycling",
+  difficulty: "Challenging",
+  bestSeason: "May–September",
+  groupSize: { min: 4, max: 8 },
+  summary:
+    "A ~350–400km supported cycling expedition from Skardu to Khunjerab Pass at 4,693m, blending endurance cycling, Karakoram scenery, and cultural immersion in Hunza and Baltistan.",
+  heroImage: {
+    src: "/images/optimized/khunjerab-pass-group.jpg",
+    alt: "Cyclists celebrating at Khunjerab Pass, the Pakistan-China border",
+    width: 2400,
+    height: 1533,
+  },
+  gallery: [
+    { src: "/images/optimized/passu-cones-alt.jpg", alt: "Passu Cones along the Karakoram Highway", width: 2400, height: 1600 },
+  ],
+  highlights: [
+    { icon: "bike", text: "Cycle the world-famous Karakoram Highway to Khunjerab Pass at 4,693m" },
+    { icon: "mountain", text: "Rakaposhi viewpoint and blossom rides through Nagar villages" },
+    { icon: "landmark", text: "Baltit & Altit Forts and Shigar Fort" },
+  ],
+  itinerary: [
+    { day: 1, title: "Arrival in Islamabad", activities: ["Airport pickup & hotel transfer", "Tour briefing & bike fitting", "Gear check and packing"], accommodation: "Hotel" },
+    { day: 2, title: "Flight to Skardu | Warm-up Ride", activities: ["Scenic flight over Nanga Parbat & Karakoram", "Assemble bikes", "Easy 15–20km warm-up ride around Skardu town", "Visit Upper Kachura / Sadpara Lake"], accommodation: "Hotel" },
+    { day: 3, title: "Skardu to Shigar", activities: ["Gentle ride through villages & farms, 35–40km", "Cold Desert stop and Shigar Fort exploration"], accommodation: "Guesthouse" },
+    { day: 4, title: "Shigar to Gilgit", activities: ["Morning vehicle transfer toward Gilgit", "Afternoon 20–25km cycling and river relaxation"], accommodation: "Hotel" },
+    { day: 5, title: "Gilgit to Hunza", activities: ["Ride on the legendary Karakoram Highway, 55–60km", "Rakaposhi viewpoint and sunset in Karimabad"], accommodation: "Guesthouse" },
+    { day: 6, title: "Hunza (Fort Day)", activities: ["Visit Baltit & Altit Forts, market stops, bike maintenance", "Optional short ride"], accommodation: "Guesthouse" },
+    { day: 7, title: "Nagar Valley Blossom Rides", activities: ["Blossom rides through Nagar villages", "Hopper Glacier viewpoint and photography"], accommodation: "Guesthouse (Hunza)" },
+    { day: 8, title: "Hunza to Passu / Gulmit", activities: ["Ride beside turquoise Attabad Lake", "Tunnels, highway, Passu Cones, and Hussaini Bridge"], accommodation: "Guesthouse" },
+    { day: 9, title: "Passu to Sost", activities: ["Gradual high-altitude climb, 35–40km", "Upper Hunza villages and entry into the Khunjerab National Park region"], accommodation: "Guesthouse" },
+    { day: 10, title: "Sost Toward Khunjerab", activities: ["Long scenic climb with wildlife viewing and altitude gain"], accommodation: "Camp / Guesthouse" },
+    { day: 11, title: "Khunjerab Pass", activities: ["Final push to Khunjerab Pass, celebration photos", "Downhill ride and vehicle transfer for a farewell dinner"], accommodation: "Guesthouse" },
+    { day: 12, title: "Drive to Gilgit", activities: ["Enjoy the scenic mountain roads and Indus River views"], accommodation: "Hotel" },
+    { day: 13, title: "Drive Gilgit → Naran/Chilas", activities: ["Drive through the stunning Karakoram Highway, passing rivers, valleys, and mountain landscapes"], accommodation: "Hotel" },
+    { day: 14, title: "Drive Naran to Islamabad", activities: ["Enjoy the picturesque mountains, rivers, and valleys along the way"], accommodation: "Hotel" },
+    { day: 15, title: "Islamabad", activities: ["Depart from Islamabad on your homebound flight, concluding the northern Pakistan adventure"] },
+  ],
+  experiencesIncluded: ["Karakoram Highway endurance cycling", "Hunza forts and Nagar blossom villages", "Khunjerab Pass and national park wildlife"],
+  inclusions: ["Support vehicle + mechanical backup", "Ground transport", "Local guide", "Selected guesthouses", "Daily breakfast"],
+  exclusions: ["International flights", "Bike rental", "Travel insurance", "Tips"],
+  idealFor: ["Endurance cyclists", "Adventure travelers seeking a supported expedition", "Photographers"],
+  pricing: [{ label: "Standard (Group of 4–8)", pricePerPerson: 1900, currency: "USD", groupSizeRange: { min: 4, max: 8 } }],
+  relatedTourSlugs: ["nomadic-cycling-tour", "nomad-bike-and-trek"],
+  seo: {
+    title: "Nomads Cycling Expedition — 15-Day Skardu to Khunjerab Pass",
+    description:
+      "A supported ~350–400km cycling expedition from Skardu to Khunjerab Pass at 4,693m, through Hunza's forts and Nagar's blossom villages.",
+    ogImage: "/images/optimized/khunjerab-pass-group.jpg",
+    canonicalPath: "/cycling/nomads-cycling-expedition",
+  },
+};

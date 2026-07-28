@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="g-hero-nomadic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7a4a2b"/>
+      <stop offset="100%" stop-color="#c97a44"/>
+    </linearGradient>
+    <linearGradient id="a-hero-nomadic" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8b26a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e8b26a" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g-hero-nomadic)"/>
+  
+      <path d="M0 734.4000000000001 Q 384 561.6 768 712.8000000000001 T 1536 648 T 1920 756 L1920 1080 L0 1080 Z" fill="url(#a-hero-nomadic)" opacity="0.5"/>
+      <circle cx="960" cy="302.40000000000003" r="129.6" fill="white" opacity="0.2"/>
+    
+  <rect width="1920" height="1080" fill="black" opacity="0.08"/>
+  
+</svg>

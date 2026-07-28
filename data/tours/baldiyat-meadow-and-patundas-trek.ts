@@ -1,0 +1,66 @@
+import type { Tour } from "@/types/tour";
+
+export const baldiyatMeadowAndPatundasTrek: Tour = {
+  slug: "baldiyat-meadow-and-patundas-trek",
+  title: "Baldiyat Meadow and Patundas Trek",
+  tagline: "A lush alpine pasture above Attabad Lake, rewarding trekkers with panoramic Karakoram views",
+  category: "trek",
+  route: ["Islamabad", "Naran", "Gilgit", "Attabad Lake", "Baldiyat Meadow", "Borit Lake", "Passugar", "Patundas Meadow", "Gilgit", "Islamabad"],
+  durationDays: { min: 14, max: 14 },
+  style: "Alpine Meadow Trekking",
+  difficulty: "Moderate",
+  bestSeason: "June–September",
+  groupSize: { min: 4, max: 8 },
+  summary:
+    "Perched above Attabad Lake, Baldiyat Meadow is a lush alpine pasture rewarding trekkers with panoramic views, connecting onward to the Patundas Trek above Borit Lake in Upper Hunza.",
+  heroImage: {
+    src: "/images/optimized/patundas-pass-hero.jpg",
+    alt: "Alpine meadow trail on the Patundas Pass trek above Hunza",
+    width: 2400,
+    height: 1600,
+  },
+  gallery: [
+    { src: "/images/optimized/borith-lake.jpg", alt: "A wooden boat flying the Pakistani flag on Borith Lake near the Patundas trailhead", width: 2400, height: 1800 },
+  ],
+  highlights: [
+    { icon: "mountain", text: "Panoramic views of Attabad Lake from Baldiyat Meadow" },
+    { icon: "waves", text: "Views of Hispar Glacier, Spantik, and Diran" },
+    { icon: "tent", text: "Camp at Patundas Meadow beneath Shispare, Ultar Sar, and Batura Glacier" },
+  ],
+  itinerary: [
+    { day: 1, title: "Islamabad → Naran", activities: ["Drive through Kaghan Valley via Mansehra and Balakot", "Evening walk along the Kunhar River"], accommodation: "Hotel" },
+    { day: 2, title: "Naran → Gilgit via Babusar Top", activities: ["Cross Babusar Top (4,173m)", "Descend into Chilas Valley with a Nanga Parbat viewpoint stop"], accommodation: "Hotel" },
+    { day: 3, title: "Gilgit → Attabad Lake (Upper Hunza)", activities: ["Drive north on the Karakoram Highway", "Stop at the Rakaposhi viewpoint", "Sunset lakeside walk at Attabad Lake"], accommodation: "Hotel" },
+    { day: 4, title: "Attabad Lake → Baldiyat Meadow", activities: ["Panoramic views of Attabad Lake and the Hispar Glacier, Spantik, and Diran", "Trek: 5–6 hours"], accommodation: "Camping" },
+    { day: 5, title: "Baldiyat → Borit Lake", activities: ["Descend to Borit Lake", "Visit Gulmit village, Hussaini Bridge, and Passu Cones"], accommodation: "Camping" },
+    { day: 6, title: "Borit Lake → Passugar", activities: ["Views of Passu Cones and Batura Glacier", "Lush alpine scenery at Passugar or a nearby meadow"], accommodation: "Camping" },
+    { day: 7, title: "Passugar → Luzdhar", activities: ["Vast alpine pastures with 360° views of Shispare, Ultar Sar, and Batura Glacier", "Ideal for photography and relaxation", "Camp at Patundas Meadows"], accommodation: "Camping" },
+    { day: 8, title: "Patundas Meadow", activities: ["Early morning sunrise yoga in the open meadow overlooking glaciers", "Dedicated nature and mountain photography sessions", "Afternoon optional hike to higher viewpoints", "Sunset photography"], accommodation: "Camping" },
+    { day: 9, title: "Patundas Meadow → Passugar", activities: ["Last views of the Karakoram peaks", "Descend through alpine meadows and glacial streams"], accommodation: "Camping" },
+    { day: 10, title: "Passugar → Borit Lake", activities: ["Descend through alpine meadows and glacial streams", "Arrive back at Borit Lake, trek concludes"], accommodation: "Camping" },
+    { day: 11, title: "Borit Lake → Gilgit", activities: ["Return drive along the Karakoram Highway", "Visit Kargha Buddha"], accommodation: "Hotel" },
+    { day: 12, title: "Gilgit → Islamabad", activities: ["Morning domestic flight, weather permitting", "Backup: road via the Karakoram Highway"] },
+    { day: 13, title: "Islamabad", activities: ["Visit Pakistan Monument & Museum, Lok Virsa Museum, and Daman-e-Koh", "Afternoon visit to Rawalpindi's old bazaar"], accommodation: "Hotel" },
+    { day: 14, title: "Homebound Flight", activities: ["Transfer to Islamabad International Airport"] },
+  ],
+  experiencesIncluded: ["Alpine meadow trekking", "Attabad Lake and Karakoram viewpoints", "Islamabad heritage sites"],
+  inclusions: [
+    "Airport transfers",
+    "Domestic flights / road transport",
+    "Licensed trekking guides",
+    "Camping equipment",
+    "Meals during trek",
+    "Trek permits",
+  ],
+  exclusions: ["International flights", "Personal trekking gear", "Travel insurance", "Tips for staff"],
+  idealFor: ["Trekkers seeking scenic alpine meadows", "Photographers", "Travelers combining trekking with Hunza culture"],
+  pricing: [{ label: "Standard (Group of 4–8)", pricePerPerson: 1450, currency: "USD", groupSizeRange: { min: 4, max: 8 } }],
+  relatedTourSlugs: ["discover-hunza-valley", "rakaposhi-base-camp-and-rush-lake-trek"],
+  seo: {
+    title: "Baldiyat Meadow and Patundas Trek — 14-Day Alpine Trek in Hunza",
+    description:
+      "Trek from Attabad Lake to Baldiyat Meadow and on to Patundas Meadow above Borit Lake, with panoramic views of Hispar Glacier, Spantik, and Batura Glacier.",
+    ogImage: "/images/optimized/patundas-pass-hero.jpg",
+    canonicalPath: "/treks/baldiyat-meadow-and-patundas-trek",
+  },
+};

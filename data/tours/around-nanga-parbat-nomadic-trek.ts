@@ -1,0 +1,63 @@
+import type { Tour } from "@/types/tour";
+
+export const aroundNangaParbatNomadicTrek: Tour = {
+  slug: "around-nanga-parbat-nomadic-trek",
+  title: "Around Nanga Parbat Nomadic Trek",
+  tagline: "Live with the mountains. Walk with nomads.",
+  category: "trek",
+  route: ["Islamabad", "Chilas", "Tarashing", "Rupal Valley", "Herrligkoffer Base Camp", "Mazeno Pass", "Diamer Valley", "Fairy Meadows", "Chilas", "Islamabad"],
+  durationDays: { min: 15, max: 15 },
+  style: "Nomadic / Cultural / Expedition-Style",
+  difficulty: "Challenging",
+  bestSeason: "June–September",
+  groupSize: { min: 4, max: 8 },
+  summary:
+    "A nomadic-paced circuit around Nanga Parbat's Rupal Face, camping with herders and shepherd families, with an optional crossing of Mazeno Pass onto the Diamer side of the mountain.",
+  heroImage: {
+    src: "/images/optimized/nanga-parbat-hero.jpg",
+    alt: "Nanga Parbat at dawn after fresh snowfall, seen from Fairy Meadows",
+    width: 2400,
+    height: 1800,
+  },
+  gallery: [
+    { src: "/images/optimized/nanga-parbat-rupal-face.jpg", alt: "Nanga Parbat's massive Rupal Face", width: 2400, height: 1600 },
+    { src: "/images/optimized/nanga-parbat-diamer.jpg", alt: "Nanga Parbat towering over the Diamer region", width: 2400, height: 1336 },
+    { src: "/images/optimized/nanga-parbat-camp.jpg", alt: "A trekking group camped on a high alpine meadow with a glacier and cloud behind", width: 2400, height: 1600 },
+  ],
+  highlights: [
+    { icon: "footprints", text: "Walking on herders' routes" },
+    { icon: "tent", text: "Living in high pastures and shepherd camps" },
+    { icon: "users", text: "Cultural exchange in Rupal and Diamer" },
+    { icon: "hourglass", text: "Slow pace and flexible days" },
+  ],
+  itinerary: [
+    { day: 1, title: "Islamabad – Chilas", activities: ["Scenic drive along the Indus River", "Stops at local villages and viewpoints", "Introduction to Diamer culture"], accommodation: "Local guesthouse" },
+    { day: 2, title: "Chilas – Tarashing (Rupal Valley)", activities: ["Jeep drive into Rupal Valley", "Meet local porters and herders", "Evening campfire with locals"], accommodation: "Village homestay / tents" },
+    { day: 3, title: "Tarashing – Rupal Glacier Camp", activities: ["Trek along the Rupal River", "Walk through summer pastures", "Learn about seasonal grazing life"], accommodation: "Nomadic camp" },
+    { day: 4, title: "Rupal Glacier – Herrligkoffer Base Camp", activities: ["Slow walk beside the massive Rupal Face", "Interaction with shepherd families"], accommodation: "Tent camp" },
+    { day: 5, title: "Acclimatization & Nomadic Life", activities: ["Short hikes above camp", "Helping locals with daily tasks", "Cultural exchange and rest"], accommodation: "Camp" },
+    { day: 6, title: "Herrligkoffer BC – Mazeno Base Camp", activities: ["Trek across rugged terrain", "Glacial walk with guide support"], accommodation: "High camp (tents)" },
+    { day: 7, title: "Mazeno Pass Crossing (Optional / Weather Dependent)", activities: ["Early start to cross Mazeno Pass, ~5,400m", "Enter the Diamer side of Nanga Parbat", "Descent to Mazeno Glacier"], accommodation: "High camp" },
+    { day: 8, title: "Mazeno Glacier – Shaigiri Camp", activities: ["Trek along a wide glacier", "Nomadic-style wilderness camp"], accommodation: "Tents" },
+    { day: 9, title: "Shaigiri – Shart BC / Diamer Side", activities: ["Descend toward greener valleys", "Meet local herders and farmers"], accommodation: "Camp / village hut" },
+    { day: 10, title: "Shart – Diamer Valley Village", activities: ["Walk through remote settlements", "Local bread baking and tea ceremony"], accommodation: "Traditional village homestay" },
+    { day: 11, title: "Rest & Cultural Day", activities: ["Learn Diamer traditions", "Handicrafts and folk stories"], accommodation: "Homestay" },
+    { day: 12, title: "Diamer – Fairy Meadows", activities: ["Jeep drive to Raikot Bridge", "Hike to Fairy Meadows", "Sunset views of Nanga Parbat"], accommodation: "Wooden huts / tents" },
+    { day: 13, title: "Beyal Nomadic Pasture Walk", activities: ["Walk to Beyal Camp", "Shepherd interaction and pasture life"], accommodation: "Camp" },
+    { day: 14, title: "Fairy Meadows – Chilas", activities: ["Descend to Raikot Bridge", "Drive to Chilas", "Farewell dinner with the team"], accommodation: "Guesthouse" },
+    { day: 15, title: "Chilas – Islamabad", activities: ["Return drive or flight, end of the nomadic journey"] },
+  ],
+  experiencesIncluded: ["Nomadic shepherd-camp life", "Rupal Face and Mazeno Pass", "Diamer village culture", "Fairy Meadows"],
+  inclusions: ["Local mountain guides & porters", "Nomadic-style camping", "Cultural interaction days", "Traditional meals", "All trekking logistics"],
+  exclusions: ["International flights", "Personal trekking gear", "Travel insurance", "Tips for staff"],
+  idealFor: ["Nomads and long-term travelers", "Adventure photographers", "Cultural explorers", "Serious trekkers seeking authenticity"],
+  pricing: [{ label: "Standard (Group of 4–8)", pricePerPerson: 1650, currency: "USD", groupSizeRange: { min: 4, max: 8 } }],
+  relatedTourSlugs: ["fairy-meadows-and-k2-base-camp-trek", "shimshal-nomadic-passage"],
+  seo: {
+    title: "Around Nanga Parbat Nomadic Trek — 15-Day Rupal & Diamer Circuit",
+    description:
+      "A nomadic-paced trek around Nanga Parbat's Rupal Face with shepherd camps, an optional Mazeno Pass crossing, Diamer villages, and Fairy Meadows.",
+    ogImage: "/images/optimized/nanga-parbat-hero.jpg",
+    canonicalPath: "/treks/around-nanga-parbat-nomadic-trek",
+  },
+};

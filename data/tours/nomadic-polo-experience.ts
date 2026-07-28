@@ -1,0 +1,57 @@
+import type { Tour } from "@/types/tour";
+
+export const nomadicPoloExperience: Tour = {
+  slug: "nomadic-polo-experience",
+  title: "Nomadic Polo Experience",
+  tagline: "Freedom, exploration, and authentic interaction with local communities at the roof of the world",
+  category: "tour",
+  route: ["Islamabad", "Gilgit", "Hunza", "Gupis", "Shandur", "Mastuj", "Chitral", "Kalash Valley", "Swat", "Islamabad"],
+  durationDays: { min: 14, max: 14 },
+  style: "Nomadic, Cultural Immersion, High-Altitude Adventure",
+  difficulty: "Moderate",
+  bestSeason: "July (Shandur Festival dates vary annually)",
+  groupSize: { min: 6, max: 12 },
+  summary:
+    "Witness the legendary freestyle polo at Shandur Pass, the world's highest polo ground, on a route through Hunza, the Kalash Valley, and Swat that captures the true essence of nomadic life in northern Pakistan.",
+  heroImage: {
+    src: "/images/optimized/shandur-polo.jpg",
+    alt: "Freestyle polo match at the Shandur Polo Festival with mountains in the background",
+    width: 2400,
+    height: 1396,
+  },
+  gallery: [],
+  highlights: [
+    { icon: "trophy", text: "Shandur Polo Festival — freestyle polo at 3,700m" },
+    { icon: "tent", text: "Nomadic-style camping at Shandur Base Camp" },
+    { icon: "music", text: "Local music, dances, and campfire gatherings" },
+  ],
+  itinerary: [
+    { day: 1, title: "Islamabad → Gilgit", activities: ["Flight or 12–14 hour road journey via the Karakoram Highway", "Evening bazaar walk"], accommodation: "Guesthouse" },
+    { day: 2, title: "Explore Gilgit → Hunza", activities: ["2–3 hours via the KKH", "Baltit Fort, Altit Fort, and Karimabad Bazaar"], accommodation: "Homestay / Guesthouse" },
+    { day: 3, title: "Hunza Exploration & Gupis Travel", activities: ["Passu Cones, Hussaini Suspension Bridge, and Attabad Lake", "Afternoon travel to Gupis, ~6 hours"], accommodation: "Guesthouse" },
+    { day: 4, title: "Gupis → Shandur Base Camp", activities: ["5–6 hours on mountainous roads", "Nomadic-style camp arrival and gear preparation"], accommodation: "Camping" },
+    { day: 5, title: "Shandur Polo Festival Day 1", activities: ["Freestyle polo matches", "Local music, dances, and campfire gathering"], accommodation: "Camping" },
+    { day: 6, title: "Shandur Polo Festival Day 2", activities: ["Polo matches and local games", "Optional alpine meadow hikes"], accommodation: "Camping" },
+    { day: 7, title: "Shandur Base → Mastuj", activities: ["5–6 hours downhill travel", "Village and market exploration"], accommodation: "Guesthouse / Homestay" },
+    { day: 8, title: "Mastuj → Chitral", activities: ["3–4 hours travel", "Chitral Bazaar, Fort, and Shahi Mosque visits"], accommodation: "Guesthouse" },
+    { day: 9, title: "Chitral → Kalash Valley", activities: ["2–3 hours to Bumburet/Rumbur", "Cultural exploration, music, and dances"], accommodation: "Homestay" },
+    { day: 10, title: "Kalash Cultural Immersion", activities: ["Local rituals and traditional crafts", "Learning about Kalash history & beliefs"], accommodation: "Homestay" },
+    { day: 11, title: "Kalash → Dir → Swat", activities: ["8–10 hour scenic drive through mountain passes"], accommodation: "Guesthouse" },
+    { day: 12, title: "Swat Exploration", activities: ["Mingora, Saidu Sharif, Swat Museum", "Optional Malam Jabba hike"], accommodation: "Guesthouse" },
+    { day: 13, title: "Swat → Islamabad", activities: ["6–7 hours travel", "Arrival in Islamabad, evening free"], accommodation: "Hotel" },
+    { day: 14, title: "Islamabad Sightseeing", activities: ["Faisal Mosque, Pakistan Monument, Lok Virsa Museum, and Rawal Lake"], accommodation: "Hotel" },
+  ],
+  experiencesIncluded: ["Shandur Polo Festival", "Hunza Valley heritage", "Kalash Valley culture"],
+  inclusions: ["Ground transport", "Festival camping setup", "Local guide", "Guesthouses & homestays", "Daily breakfast"],
+  exclusions: ["International flights", "Travel insurance", "Personal expenses", "Tips"],
+  idealFor: ["Adventurous, slow-travel seekers", "Festival-goers", "Photographers"],
+  pricing: [{ label: "Standard (Group of 6–12)", pricePerPerson: 1100, currency: "USD", groupSizeRange: { min: 6, max: 12 } }],
+  relatedTourSlugs: ["kalash-nomadic-passage", "discover-hunza-valley"],
+  seo: {
+    title: "Nomadic Polo Experience — 14-Day Shandur Polo Festival Tour",
+    description:
+      "Witness the legendary Shandur Polo Festival at the world's highest polo ground, plus Hunza Valley heritage and Kalash Valley culture.",
+    ogImage: "/images/optimized/shandur-polo.jpg",
+    canonicalPath: "/tours/nomadic-polo-experience",
+  },
+};

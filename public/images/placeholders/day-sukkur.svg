@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g-day-sukkur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12363a"/>
+      <stop offset="100%" stop-color="#2f6d6f"/>
+    </linearGradient>
+    <linearGradient id="a-day-sukkur" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7fbdb8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7fbdb8" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g-day-sukkur)"/>
+  
+      <path d="M0 480 C 360 360, 480 560, 780 463.99999999999994 S 1200 400, 1200 400 L1200 800 L0 800 Z" fill="url(#a-day-sukkur)" opacity="0.5"/>
+    
+  <rect width="1200" height="800" fill="black" opacity="0.08"/>
+  <text x="60" y="720" font-family="Georgia, serif" font-size="44" fill="white" opacity="0.85">Sukkur</text>
+</svg>

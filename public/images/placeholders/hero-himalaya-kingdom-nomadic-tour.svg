@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="g-hero-himalaya-kingdom-nomadic-tour" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5c2a3a"/>
+      <stop offset="100%" stop-color="#a3546a"/>
+    </linearGradient>
+    <linearGradient id="a-hero-himalaya-kingdom-nomadic-tour" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e2a3b4" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e2a3b4" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g-hero-himalaya-kingdom-nomadic-tour)"/>
+  
+      <g opacity="0.5" fill="url(#a-hero-himalaya-kingdom-nomadic-tour)">
+        <rect x="230.39999999999998" y="486" width="96" height="378"/>
+        <rect x="422.4" y="378" width="96" height="486"/>
+        <path d="M422.4 378 a 48 48 0 0 1 96 0 Z"/>
+        <rect x="1344" y="432" width="307.2" height="432"/>
+        <path d="M1344 432 q 153.6 -129.6 307.2 0 Z"/>
+      </g>
+    
+  <rect width="1920" height="1080" fill="black" opacity="0.08"/>
+  <text x="96" y="972" font-family="Georgia, serif" font-size="59" fill="white" opacity="0.85">Himalaya Kingdom – Nomadic Tour</text>
+</svg>

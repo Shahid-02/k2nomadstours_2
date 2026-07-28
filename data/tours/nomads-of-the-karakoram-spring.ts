@@ -1,0 +1,62 @@
+import type { Tour } from "@/types/tour";
+
+export const nomadsOfTheKarakoramSpring: Tour = {
+  slug: "nomads-of-the-karakoram-spring",
+  title: "Nomads of the Karakoram Spring",
+  tagline: "Springtime Journey Through Pakistan's Hidden Paradise",
+  category: "tour",
+  route: ["Islamabad", "Skardu", "Shigar", "Khaplu", "Gilgit", "Hunza", "Nagar", "Passu", "Naran", "Islamabad"],
+  durationDays: { min: 15, max: 15 },
+  style: "Blossom Season Scenic Tour",
+  difficulty: "Easy to Moderate",
+  bestSeason: "March–April (blossom season)",
+  groupSize: { min: 4, max: 10 },
+  summary:
+    "A springtime journey through Baltistan and Hunza timed to the almond and cherry blossoms — Shigar and Khaplu forts, Hunza and Nagar's blossom-lined villages, and the glacial lakes of Passu.",
+  heroImage: {
+    src: "/images/optimized/hunza-fort-blossoms.jpg",
+    alt: "A hilltop fort surrounded by spring blossoms in Hunza",
+    width: 2400,
+    height: 1600,
+  },
+  gallery: [
+    { src: "/images/optimized/khaplu-fort.jpg", alt: "Khaplu Fort (Yabgo Palace) in Baltistan", width: 2400, height: 1574 },
+    { src: "/images/optimized/shangrila-lake.jpg", alt: "Shangrila Resort reflected in Lower Kachura Lake, Skardu", width: 2400, height: 1602 },
+    { src: "/images/optimized/passu-cones-alt.jpg", alt: "Passu Cones in the Karakoram range", width: 2400, height: 1600 },
+  ],
+  highlights: [
+    { icon: "landmark", text: "Historic Shigar Fort and the royal heritage of Khaplu Fort" },
+    { icon: "mountain", text: "Hunza & Nagar blossom walks with Rakaposhi and Passu viewpoints" },
+    { icon: "waves", text: "Skardu's lakes, deserts, and mountain landscapes" },
+  ],
+  itinerary: [
+    { day: 1, title: "Islamabad Arrival", activities: ["Transfer to hotel, tour briefing and rest", "Evening free time or Margalla Hills sunset view"], accommodation: "Hotel" },
+    { day: 2, title: "Fly Islamabad → Skardu", activities: ["One of the world's most scenic flights, over Nanga Parbat and the Karakoram", "Visit Upper/Lower Kachura Lake & Shangrila"], accommodation: "Hotel" },
+    { day: 3, title: "Skardu Local Exploration", activities: ["Sadpara Lake, Skardu Bazaar & local culture", "Optional short hikes"], accommodation: "Hotel" },
+    { day: 4, title: "Skardu → Shigar Valley", activities: ["Explore the historic Shigar Fort", "Visit Blind Lake and the Cold Desert"], accommodation: "Hotel" },
+    { day: 5, title: "Shigar → Khaplu Valley", activities: ["Scenic drive along the Shyok River", "Visit the majestic Khaplu Fort (Yabgo Palace) and Chaqchan Mosque"], accommodation: "Hotel" },
+    { day: 6, title: "Khaplu → Skardu → Gilgit", activities: ["Return to Skardu, then drive toward Gilgit via the Indus River"], accommodation: "Hotel" },
+    { day: 7, title: "Gilgit → Hunza Valley", activities: ["Drive on the Karakoram Highway", "Stop at the Rakaposhi viewpoint", "Evening blossom walk in Karimabad"], accommodation: "Hotel" },
+    { day: 8, title: "Hunza Cultural Day", activities: ["Visit Baltit Fort & Altit Fort", "Local market and traditional Hunza dinner"], accommodation: "Hotel" },
+    { day: 9, title: "Hopper & Nagar Valley", activities: ["Blossom walks in Nagar & Hopper Valley", "Hopper Glacier viewpoint"], accommodation: "Hotel" },
+    { day: 10, title: "Hunza → Passu → Upper Hunza", activities: ["Hussaini Suspension Bridge, Passu Cones viewpoints, Borith Lake sunset", "Attabad Lake boating"], accommodation: "Guesthouse" },
+    { day: 11, title: "Passu Free & Nature Day", activities: ["Easy hike or glacier walk", "Photography session"], accommodation: "Guesthouse" },
+    { day: 12, title: "Passu → Gilgit", activities: ["Scenic drive back with rock carvings & viewpoints"], accommodation: "Hotel" },
+    { day: 13, title: "Gilgit → Naran/Chilas", activities: ["Drive via the Karakoram Highway or Babusar Pass, seasonal"], accommodation: "Hotel" },
+    { day: 14, title: "Naran → Islamabad", activities: ["Return drive to Islamabad", "Evening shopping or farewell dinner"], accommodation: "Hotel" },
+    { day: 15, title: "Departure", activities: ["Transfer to the airport for international flight"] },
+  ],
+  experiencesIncluded: ["Baltistan's forts and lakes", "Hunza & Nagar blossom season", "Passu glacial lakes and cones"],
+  inclusions: ["Comfortable transport", "Local guide", "Selected hotels & guesthouses", "Daily breakfast"],
+  exclusions: ["International flights", "Travel insurance", "Personal expenses", "Tips"],
+  idealFor: ["Photographers chasing blossom season", "Cultural & heritage travelers", "Scenic-drive travelers"],
+  pricing: [{ label: "Standard (Group of 4–10)", pricePerPerson: 1250, currency: "USD", groupSizeRange: { min: 4, max: 10 } }],
+  relatedTourSlugs: ["discover-hunza-valley", "himalaya-kingdom-nomadic-tour"],
+  seo: {
+    title: "Nomads of the Karakoram Spring — 15-Day Blossom Season Tour",
+    description:
+      "A springtime tour through Baltistan and Hunza timed to the blossom season — Shigar and Khaplu forts, Hunza and Nagar's blossom villages, and Passu's glacial lakes.",
+    ogImage: "/images/optimized/hunza-fort-blossoms.jpg",
+    canonicalPath: "/tours/nomads-of-the-karakoram-spring",
+  },
+};

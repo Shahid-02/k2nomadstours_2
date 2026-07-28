@@ -1,0 +1,60 @@
+import type { Tour } from "@/types/tour";
+
+export const nomadsWildFrontierOverland: Tour = {
+  slug: "nomads-wild-frontier-overland",
+  title: "Nomads Wild Frontier Overland",
+  tagline: "Not just a road trip — a true expedition into the heart of Pakistan's last great wilderness",
+  category: "tour",
+  route: ["Islamabad", "Swat Valley", "Chitral", "Kalash Valley", "Shandur Pass", "Phander", "Gilgit", "Hunza", "Skardu", "Shigar", "Khaplu", "Hushe", "Islamabad"],
+  durationDays: { min: 15, max: 15 },
+  style: "4x4 Overland Expedition",
+  difficulty: "Moderate",
+  bestSeason: "June–September",
+  groupSize: { min: 4, max: 10 },
+  summary:
+    "An epic 4x4 overland expedition across Pakistan's northern frontier — Swat, Chitral, the Kalash Valley, Shandur Pass, Hunza, and Baltistan's remote Shigar, Khaplu, and Hushe valleys.",
+  heroImage: {
+    src: "/images/optimized/shangrila-lake.jpg",
+    alt: "Shangrila Resort reflected in Lower Kachura Lake, Skardu",
+    width: 2400,
+    height: 1602,
+  },
+  gallery: [
+    { src: "/images/optimized/baltistan-valley-aerial.jpg", alt: "Aerial view of a Baltistan valley village in autumn", width: 2400, height: 1600 },
+  ],
+  highlights: [
+    { icon: "mountain", text: "Cross Shandur Pass at 3,700m, the world's highest polo ground" },
+    { icon: "waves", text: "The turquoise beauty of Attabad Lake" },
+    { icon: "tent", text: "Off-grid camping under star-filled skies" },
+  ],
+  itinerary: [
+    { day: 1, title: "Arrival in Islamabad", activities: ["Meet your safari team, trip briefing & gear check", "Visit Faisal Mosque or Daman-e-Koh viewpoint"], accommodation: "Hotel" },
+    { day: 2, title: "Islamabad → Swat Valley", activities: ["Scenic motorway drive north into the 'Switzerland of Pakistan'", "Explore Mingora & Fizagat riverside"], accommodation: "Guesthouse" },
+    { day: 3, title: "Swat → Chitral", activities: ["Drive through the Lowari Tunnel/Pass", "Visit Chitral Fort & bazaar"], accommodation: "Guesthouse" },
+    { day: 4, title: "Chitral → Kalash Valley", activities: ["Jeep track into Bumburet/Rumbur Valley", "Cultural immersion with the Kalash tribe"], accommodation: "Homestay" },
+    { day: 5, title: "Kalash Cultural Day", activities: ["Free exploration, short hikes & nature walks", "Learn local traditions and history"], accommodation: "Homestay" },
+    { day: 6, title: "Kalash → Shandur Pass", activities: ["Epic 4x4 adventure day crossing Shandur Pass at 3,700m", "Continue to Phander Lake"], accommodation: "Camping" },
+    { day: 7, title: "Phander → Ghizer → Gilgit", activities: ["Drive along the Ghizer River with village visits", "Explore Gilgit bazaar & Kargah Buddha"], accommodation: "Hotel" },
+    { day: 8, title: "Gilgit → Hunza Valley", activities: ["Drive on the Karakoram Highway", "Visit Baltit & Altit Forts", "Sunset over Rakaposhi & Ultar peaks"], accommodation: "Hotel" },
+    { day: 9, title: "Upper Hunza Exploration", activities: ["Attabad Lake boating, Passu Cones photography", "Hussaini Suspension Bridge and Borith Lake sunset"], accommodation: "Guesthouse" },
+    { day: 10, title: "Hunza → Skardu", activities: ["Off-road jeep journey via the Indus River into Baltistan"], accommodation: "Hotel" },
+    { day: 11, title: "Skardu Sightseeing", activities: ["Shangrila (Lower Kachura) Lake, Satpara Lake, Kharpocho Fort hike"], accommodation: "Hotel" },
+    { day: 12, title: "Shigar Valley Excursion", activities: ["Visit the historic Shigar Fort", "Village walks and orchards"], accommodation: "Hotel" },
+    { day: 13, title: "Khaplu → Hushe Valley", activities: ["Journey along the Nomads' Mountain Passage into pristine valleys and towering alpine peaks"], accommodation: "Guesthouse" },
+    { day: 14, title: "Hushe → Skardu", activities: ["Drive through rugged mountain roads and the scenic Indus River gorge"], accommodation: "Hotel" },
+    { day: 15, title: "Skardu → Islamabad", activities: ["Flight from Skardu to Islamabad"] },
+  ],
+  experiencesIncluded: ["Shandur Pass crossing", "Kalash Valley culture", "Baltistan's Shigar, Khaplu & Hushe valleys"],
+  inclusions: ["4x4 overland transport", "Local guide", "Guesthouses & homestays", "Daily breakfast", "Camping equipment for Shandur"],
+  exclusions: ["International flights", "Travel insurance", "Personal expenses", "Tips"],
+  idealFor: ["Explorers, photographers, and adventure lovers", "Travelers who want to truly explore, not just sightsee"],
+  pricing: [{ label: "Standard (Group of 4–10)", pricePerPerson: 1400, currency: "USD", groupSizeRange: { min: 4, max: 10 } }],
+  relatedTourSlugs: ["kalash-nomadic-passage", "nomadic-polo-experience"],
+  seo: {
+    title: "Nomads Wild Frontier Overland — 15-Day 4x4 Expedition",
+    description:
+      "An epic 4x4 overland expedition across Swat, Chitral, the Kalash Valley, Shandur Pass, Hunza, and Baltistan's remote Shigar, Khaplu, and Hushe valleys.",
+    ogImage: "/images/optimized/shangrila-lake.jpg",
+    canonicalPath: "/tours/nomads-wild-frontier-overland",
+  },
+};

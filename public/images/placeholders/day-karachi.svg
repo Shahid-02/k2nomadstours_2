@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g-day-karachi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5c2a3a"/>
+      <stop offset="100%" stop-color="#a3546a"/>
+    </linearGradient>
+    <linearGradient id="a-day-karachi" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e2a3b4" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e2a3b4" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g-day-karachi)"/>
+  
+      <path d="M0 600 Q 300 520 600 600 T 1200 600 L1200 800 L0 800 Z" fill="url(#a-day-karachi)" opacity="0.55"/>
+      <path d="M0 496 Q 300 416 600 496 T 1200 496 L1200 600 L0 600 Z" fill="url(#a-day-karachi)" opacity="0.3"/>
+    
+  <rect width="1200" height="800" fill="black" opacity="0.08"/>
+  <text x="60" y="720" font-family="Georgia, serif" font-size="44" fill="white" opacity="0.85">Karachi</text>
+</svg>

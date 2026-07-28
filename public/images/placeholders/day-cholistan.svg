@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g-day-cholistan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7a4a2b"/>
+      <stop offset="100%" stop-color="#c97a44"/>
+    </linearGradient>
+    <linearGradient id="a-day-cholistan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8b26a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e8b26a" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g-day-cholistan)"/>
+  
+      <path d="M0 544 Q 240 416 480 528 T 960 480 T 1200 560 L1200 800 L0 800 Z" fill="url(#a-day-cholistan)" opacity="0.5"/>
+      <circle cx="600" cy="224.00000000000003" r="96" fill="white" opacity="0.2"/>
+    
+  <rect width="1200" height="800" fill="black" opacity="0.08"/>
+  <text x="60" y="720" font-family="Georgia, serif" font-size="44" fill="white" opacity="0.85">Cholistan Desert</text>
+</svg>

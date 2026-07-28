@@ -1,0 +1,55 @@
+import type { Tour } from "@/types/tour";
+
+export const nomadsOfNagmahValleyTrek: Tour = {
+  slug: "nomads-of-nagmah-valley-trek",
+  title: "Nomads of Nagmah Valley Trek",
+  tagline: "Remote, quiet, and breathtaking — a true off-the-grid mountain experience",
+  category: "trek",
+  route: ["Islamabad", "Skardu", "Khaplu", "Kanday", "Mingulo Broq", "Amin Brakk Base Camp", "Skardu", "Chilas", "Islamabad"],
+  durationDays: { min: 12, max: 12 },
+  style: "Nomadic / Off-the-Grid Experience",
+  difficulty: "Challenging",
+  bestSeason: "June–September",
+  groupSize: { min: 4, max: 8 },
+  summary:
+    "An off-the-grid valley trek to Amin Brakk Base Camp at 5,850m, through the dramatic granite rock towers of the Nangmah Valley — a rock climber's paradise of pinnacles and wildflower-filled meadows.",
+  heroImage: {
+    src: "/images/optimized/nangmah-valley-hero.jpg",
+    alt: "Granite rock towers rising above the Nangmah Valley",
+    width: 2400,
+    height: 1598,
+  },
+  gallery: [],
+  highlights: [
+    { icon: "mountain", text: "Dramatic granite rock towers and countless natural pinnacles" },
+    { icon: "tent", text: "Amin Brakk Base Camp at 5,850m" },
+    { icon: "footprints", text: "Panoramic views of rugged peaks and vibrant summer wildflowers" },
+  ],
+  itinerary: [
+    { day: 1, title: "Islamabad International Airport", activities: ["Guide greets you and transfers to the hotel", "Leisure time to relax and recover from the journey", "Tour briefing after lunch", "Market trip for supplies and currency exchange", "Stops at Lok Virsa Museum and the Shah Faisal Mosque"], accommodation: "Hotel" },
+    { day: 2, title: "Fly to Skardu — If flight cancels, drive on the KKH to Chilas", activities: ["Thrilling scenic flight with breathtaking views of Nanga Parbat and other mountain peaks", "Transfer by local vehicle to Skardu and hotel check-in", "Weather backup: 10–12 hour drive from Islamabad to Chilas over the Karakoram Highway"], accommodation: "Hotel" },
+    { day: 3, title: "Skardu Sightseeing Day", activities: ["Visit Skardu's Kharpocho Fort, perched on a mountain with breathtaking views of the Indus River and town below", "Optional tour to Sadpara Lake", "Free time in Skardu Bazaar"], accommodation: "Hotel" },
+    { day: 4, title: "Drive to Khaplu", activities: ["3-hour drive via picturesque Baltistan villages through the Ghanche district", "Brief stops at Thorgo Pari and the Shayok–Indus river confluence, plus a suspension-bridge walk at Keris", "Yugo village tour — fresh fruit picking, organic farming, and time with local artists and elders", "Visit a classic water flour mill and lunch of Balti cuisine made by local women", "Evening sunset walk at Hanjore Broq"], accommodation: "Hotel" },
+    { day: 5, title: "Drive to Kanday & Trek to Mingulo Broq", activities: ["2-hour drive from Khaplu to Kanday hamlet", "Trek to Mingulo Broq at 3,500m through lush green meadows and stone-wall villages", "Afternoon leisure time for natural exploration"], accommodation: "Camping" },
+    { day: 6, title: "Trek to Amin Broq Base Camp", activities: ["Trek to Amin Broq Base Camp at 4,500m", "Early rise for sunrise, explore a nearby glacial stream", "Optional scrambling on nearby rocks", "Spot Karakoram bird and flower species"], accommodation: "Camping" },
+    { day: 7, title: "Free Day", activities: ["A relaxed day in the heart of the Nangmah Valley, surrounded by towering granite peaks", "Rest, acclimatization, and exploration at your own pace"], accommodation: "Camping" },
+    { day: 8, title: "Trek back to Mingulo Broq", activities: ["Return trek retracing the route through the heart of Nangmah Valley", "Fresh perspective of granite towers, rugged cliffs, and wide alpine meadows"], accommodation: "Camping" },
+    { day: 9, title: "Trek back to Kanday & Drive to Skardu", activities: ["Final trek to Kanday Village, descending through green meadows and clear mountain streams", "Private vehicle transfer for a scenic drive to Skardu"], accommodation: "Hotel" },
+    { day: 10, title: "Drive from Skardu to Chilas", activities: ["Scenic road journey following the Indus River, past deep gorges and rugged cliffs", "Showcases the raw beauty of the Karakoram region"], accommodation: "Guesthouse" },
+    { day: 11, title: "Drive from Chilas to Islamabad", activities: ["Long but scenic journey along the Karakoram Highway (KKH), the 'Eighth Wonder of the World'", "Spectacular views of the Indus River, towering mountains, and rugged valleys"], accommodation: "Hotel" },
+    { day: 12, title: "Fly Back Home", activities: ["Transfer to the airport in time for the international flight"] },
+  ],
+  experiencesIncluded: ["Off-the-grid valley trekking", "Amin Brakk Base Camp", "Balti village culture in Khaplu"],
+  inclusions: ["Local guide and porters", "Camping and meals during trek", "First-aid and communication support"],
+  exclusions: ["International flights", "Personal trekking gear", "Travel insurance", "Tips for staff"],
+  idealFor: ["Trekkers and rock climbers", "Travelers seeking deep connection with nature and silence", "Those wanting a balance of adventure and tranquility"],
+  pricing: [{ label: "Standard (Group of 4–8)", pricePerPerson: 1600, currency: "USD", groupSizeRange: { min: 4, max: 8 } }],
+  relatedTourSlugs: ["thalle-la-pass-trek", "nomads-of-the-karakoram-trek"],
+  seo: {
+    title: "Nomads of Nagmah Valley Trek — 12-Day Off-the-Grid Trek",
+    description:
+      "An off-the-grid trek through the Nangmah Valley's dramatic granite towers to Amin Brakk Base Camp at 5,850m — a rock climber's paradise near Khaplu.",
+    ogImage: "/images/optimized/nangmah-valley-hero.jpg",
+    canonicalPath: "/treks/nomads-of-nagmah-valley-trek",
+  },
+};

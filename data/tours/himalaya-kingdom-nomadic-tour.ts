@@ -1,0 +1,65 @@
+import type { Tour } from "@/types/tour";
+
+export const himalayaKingdomNomadicTour: Tour = {
+  slug: "himalaya-kingdom-nomadic-tour",
+  title: "Himalaya Kingdom – Nomadic Tour",
+  tagline: "Urban heritage, raw mountain wilderness, and high-altitude culture, from Lahore to the roof of the world",
+  category: "tour",
+  route: ["Lahore", "Islamabad", "Chilas", "Fairy Meadows", "Karimabad", "Hopper Valley", "Passu", "Khunjerab Pass", "Naran", "Lahore"],
+  durationDays: { min: 14, max: 14 },
+  style: "Nomadic, Slow Travel, Nature & Culture",
+  difficulty: "Moderate",
+  bestSeason: "May–September",
+  groupSize: { min: 4, max: 10 },
+  summary:
+    "A 14-day nomadic journey blending urban heritage, raw mountain wilderness, and high-altitude culture — starting in Lahore's historic streets and traveling deep into northern Pakistan up to Khunjerab Pass at 4,693m.",
+  heroImage: {
+    src: "/images/optimized/lahore-fort.jpg",
+    alt: "Lahore Fort viewed from the Badshahi Mosque Baradari",
+    width: 2400,
+    height: 1758,
+  },
+  gallery: [
+    { src: "/images/optimized/fairy-meadows-alt.jpg", alt: "Fairy Meadows beneath Nanga Parbat", width: 2400, height: 1601 },
+  ],
+  highlights: [
+    { icon: "landmark", text: "Lahore's Mughal heritage: Badshahi Mosque, Lahore Fort, and the Walled City" },
+    { icon: "mountain", text: "Fairy Meadows beneath Nanga Parbat, the world's ninth-highest peak" },
+    { icon: "waves", text: "Khunjerab Pass at 4,693m with wildlife viewing" },
+  ],
+  itinerary: [
+    { day: 1, title: "Explore Lahore (Heritage Day)", activities: ["Badshahi Mosque, Lahore Fort, and the Walled City (Androon Lahore)", "Food Street and sunset at Minar-e-Pakistan"], accommodation: "Hotel" },
+    { day: 2, title: "Explore Lahore (Culture & Nature)", activities: ["Lahore Museum and Shalimar Gardens", "Anarkali Bazaar", "Evening Wagah Border Ceremony"], accommodation: "Hotel" },
+    { day: 3, title: "Lahore → Islamabad", activities: ["Travel 4–5 hours", "Faisal Mosque and Daman-e-Koh viewpoint"], accommodation: "Hotel" },
+    { day: 4, title: "Islamabad → Chilas", activities: ["Scenic mountain drive, 12–14 hours via Besham/Naran"], accommodation: "Hotel" },
+    { day: 5, title: "Chilas → Fairy Meadows", activities: ["Chilas to Raikot Bridge", "Jeep ride to Tattu Village", "3–4 hour trek to Fairy Meadows"], accommodation: "Wooden huts" },
+    { day: 6, title: "Fairy Meadows (Rest & Explore)", activities: ["Sunrise and sunset views of Nanga Parbat", "Short hikes and stargazing"], accommodation: "Wooden huts" },
+    { day: 7, title: "Fairy Meadows → Beyal Camp (Optional)", activities: ["Trek to Beyal Camp for glacier views, optional overnight"], accommodation: "Camping" },
+    { day: 8, title: "Fairy Meadows → Chilas → Hunza", activities: ["Trek down, jeep ride to Karimabad, stopping at Rakaposhi Viewpoint and Attabad Lake"], accommodation: "Guesthouse" },
+    { day: 9, title: "Explore Karimabad (Central Hunza)", activities: ["Baltit Fort, Altit Fort, old village walks, and café hopping"], accommodation: "Guesthouse" },
+    { day: 10, title: "Hunza → Hopper Valley", activities: ["Day trip to Hopper Glacier", "Local village life"], accommodation: "Guesthouse" },
+    { day: 11, title: "Hunza → Passu", activities: ["Passu Cones", "Hussaini Suspension Bridge", "Passu Glacier"], accommodation: "Guesthouse" },
+    { day: 12, title: "Passu → Khunjerab Pass", activities: ["Drive to Khunjerab National Park", "Wildlife spotting", "Return to Passu / Ghulkin"], accommodation: "Guesthouse" },
+    { day: 13, title: "Hunza → Naran / Besham", activities: ["Full-day drive via the Karakoram Highway and Babusar Road"], accommodation: "Hotel" },
+    { day: 14, title: "Naran/Besham → Lahore", activities: ["Return to Lahore, trip concludes"] },
+  ],
+  experiencesIncluded: ["Lahore Mughal heritage", "Fairy Meadows & Nanga Parbat", "Hunza Valley & Khunjerab Pass"],
+  inclusions: [
+    "City hotels in Lahore & Islamabad",
+    "Wooden huts / camping at Fairy Meadows",
+    "Guesthouses & homestays in Hunza & Passu",
+    "Long-distance transport by bus / private car / coaster",
+    "4x4 jeep from Raikot Bridge to Tattu Village",
+  ],
+  exclusions: ["International flights", "Travel insurance", "Personal expenses", "Tips"],
+  idealFor: ["Travelers seeking slow, immersive travel", "Nature walkers and digital detoxers", "Cultural and mountain explorers"],
+  pricing: [{ label: "Standard (Group of 4–10)", pricePerPerson: 1150, currency: "USD", groupSizeRange: { min: 4, max: 10 } }],
+  relatedTourSlugs: ["discover-hunza-valley", "nomads-of-the-karakoram-spring"],
+  seo: {
+    title: "Himalaya Kingdom – Nomadic Tour — 14-Day Lahore to Hunza Journey",
+    description:
+      "From Lahore's Mughal heritage to Fairy Meadows and Khunjerab Pass — a 14-day nomadic journey blending urban culture and high-altitude wilderness.",
+    ogImage: "/images/optimized/lahore-fort.jpg",
+    canonicalPath: "/tours/himalaya-kingdom-nomadic-tour",
+  },
+};

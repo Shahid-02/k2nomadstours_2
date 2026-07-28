@@ -1,0 +1,60 @@
+import type { Tour } from "@/types/tour";
+
+export const nomadsOfTheKarakoramTrek: Tour = {
+  slug: "nomads-of-the-karakoram-trek",
+  title: "Nomads of the Karakoram Trek",
+  tagline: "This journey blends culture, heritage, and high-altitude trekking in the raw heart of the Karakoram",
+  category: "trek",
+  route: ["Islamabad", "Skardu", "Hunza", "Nagar", "Karimabad", "Ultar Meadow", "Hoon Pass", "Brongbago", "Bululow Meadow", "Naran", "Islamabad"],
+  durationDays: { min: 14, max: 14 },
+  style: "Cultural & High-Altitude Trekking",
+  difficulty: "Challenging",
+  bestSeason: "June–September",
+  groupSize: { min: 4, max: 8 },
+  summary:
+    "A blend of Skardu and Hunza heritage with a high-altitude trek to Ultar Meadow via Hoon Pass at ~4,200m and camping at Brongbago beneath Rakaposhi, Lady Finger, and the Karakoram range.",
+  heroImage: {
+    src: "/images/optimized/ultar-peak.jpg",
+    alt: "Ultar Peak above Hunza, seen from the Ultar Meadow trek",
+    width: 2400,
+    height: 1800,
+  },
+  gallery: [
+    { src: "/images/optimized/baltistan-valley-aerial.jpg", alt: "Aerial view of a Hunza/Nagar valley village in autumn", width: 2400, height: 1600 },
+    { src: "/images/optimized/baltistan-hilltop-fort.jpg", alt: "A hilltop fort overlooking a Baltistan village in autumn", width: 2400, height: 1600 },
+  ],
+  highlights: [
+    { icon: "footprints", text: "Trek to Ultar Meadow via Hoon Pass" },
+    { icon: "tent", text: "Camping at Brongbago under the stars" },
+    { icon: "mountain", text: "Breathtaking views of Rakaposhi, Lady Finger, and the Karakoram range" },
+  ],
+  itinerary: [
+    { day: 1, title: "Arrival in Islamabad", activities: ["Smooth airport transfer and hotel check-in", "Half-day tour of the capital — friendly faces, colorful markets, and dynamic energy"], accommodation: "Hotel" },
+    { day: 2, title: "Islamabad – Skardu (Flight)", activities: ["Fly to Skardu over Nanga Parbat, weather permitting, or drive the legendary Karakoram Highway to Chilas"], accommodation: "Hotel" },
+    { day: 3, title: "Skardu Sightseeing", activities: ["Kharpocho Fort, Manthal Buddha Rock, and Sadpara Lake", "Optional visit to Upper Kachura Lake and Broq", "By road: complete the scenic journey from Chilas to Skardu"], accommodation: "Hotel" },
+    { day: 4, title: "Skardu – Hunza Valley (By Road)", activities: ["Scenic drive along the Karakoram Highway (KKH)", "Rivers, deep gorges, terraced fields, and snow-capped peaks"], accommodation: "Hotel" },
+    { day: 5, title: "Hunza Valley Exploration", activities: ["Baltit Fort with breathtaking views of Hunza Valley and the surrounding mountains", "Altit Fort's centuries-old heritage with panoramic vistas of terraced fields", "Duiker Viewpoint at sunrise or sunset, with spectacular views of Rakaposhi, Ultar Sar & the Karakoram range"], accommodation: "Hotel" },
+    { day: 6, title: "Nagar Valley Excursion", activities: ["Drive to Nagar Valley to explore its natural wonders", "Hopper Glacier and the Golden Peak viewpoint for photo opportunities", "Panoramic views of Rakaposhi and Spantik", "Return to Hunza for the night"], accommodation: "Hotel" },
+    { day: 7, title: "Karimabad – Ultar Meadow", activities: ["Trek to Ultar Meadow, 5–6 hours, through alpine fields and scenic trails", "Panoramic views of Ultar Sar, Bojahagur Duanasir II, and Hunza Peak", "Camp or mountain hut surrounded by high-meadow serenity"], accommodation: "Camping" },
+    { day: 8, title: "Ultar Meadow – Brongbago", activities: ["Trek via Hoon Pass, 5–6 hours, through scenic alpine trails and lush green meadows", "Evening arrival at the Brongbago campsite, pasture of the local Brong tribe", "Wander among apricot trees, alpine forests, and vibrant green pastures"], accommodation: "Camping" },
+    { day: 9, title: "Brongbago – Khuwat", activities: ["Trek to Bululow Meadow, 5–6 hours, through alpine fields and scenic trails", "Panoramic views of Lady Finger, Rakaposhi, Diran Peak & Hunza Peak", "Camp or mountain hut amid the high meadows"], accommodation: "Camping" },
+    { day: 10, title: "Khuwat – Brongbago", activities: ["Late start after a breathtaking sunrise from the mountaintop", "Aerial views of Hunza and Nagar valleys along the Karakoram range", "Trek back through alpine fields with panoramic views of Lady Finger, Rakaposhi, Diran, and Hunza Peak"], accommodation: "Camping" },
+    { day: 11, title: "Brongbago – Ali Abad", activities: ["Hike down toward Aliabad, passing lush fields and scenic trails", "Explore historic water channels and old streets of Karimabad, Hunza", "Evening at a hostel or nomad-style accommodation soaking in the local lifestyle"], accommodation: "Hotel" },
+    { day: 12, title: "Hunza – Naran", activities: ["Organic breakfast at the Nomads Hostel", "Drive to Naran via the KKH and Babusar Road, with rivers, mountains, and scenic stops along the way"], accommodation: "Hotel" },
+    { day: 13, title: "Naran – Islamabad", activities: ["Drive back through the scenic Naran Valley, stopping for photos and refreshments", "Evening shopping or exploring the city — local markets, Centaurus Mall, or souvenir shops"], accommodation: "Hotel" },
+    { day: 14, title: "Fly Back Home", activities: ["Transfer to Islamabad airport with a heart full of Karakoram memories"] },
+  ],
+  experiencesIncluded: ["Skardu and Hunza heritage forts", "Ultar Meadow trek via Hoon Pass", "Brongbago and Bululow Meadow camping"],
+  inclusions: ["Airport transfers", "Domestic flights / road transport", "Licensed trekking guide", "Camping equipment", "Meals during trek"],
+  exclusions: ["International flights", "Personal trekking gear", "Travel insurance", "Tips for staff"],
+  idealFor: ["Modern nomads", "Adventure seekers", "Photographers", "Trekkers seeking authentic mountain life"],
+  pricing: [{ label: "Standard (Group of 4–8)", pricePerPerson: 1800, currency: "USD", groupSizeRange: { min: 4, max: 8 } }],
+  relatedTourSlugs: ["discover-hunza-valley", "nomads-of-nagmah-valley-trek"],
+  seo: {
+    title: "Nomads of the Karakoram Trek — 14-Day Skardu & Hunza Trek",
+    description:
+      "Skardu and Hunza heritage combined with a high-altitude trek to Ultar Meadow via Hoon Pass and camping at Brongbago beneath the Karakoram giants.",
+    ogImage: "/images/optimized/ultar-peak.jpg",
+    canonicalPath: "/treks/nomads-of-the-karakoram-trek",
+  },
+};
