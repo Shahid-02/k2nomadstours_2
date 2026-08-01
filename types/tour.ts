@@ -8,6 +8,12 @@ export interface TourImage {
   height: number;
 }
 
+export interface TourVideo {
+  src: string;
+  title?: string;
+  poster?: string;
+}
+
 export interface ItineraryDay {
   /** A single day number, or a range like "14-20" for condensed return-journey entries. */
   day: number | string;
@@ -16,6 +22,15 @@ export interface ItineraryDay {
   activities: string[];
   accommodation?: string;
   meals?: ("Breakfast" | "Lunch" | "Dinner")[];
+  /**
+   * Optional per-day photograph for the timeline. Left unset the timeline draws
+   * a typographic tile instead — never another day's photo, which would put a
+   * Concordia glacier next to "Arrival in Islamabad".
+   */
+  image?: TourImage;
+  /** Overrides for the values `lib/itinerary.ts` otherwise parses out of the copy. */
+  distanceKm?: number;
+  elevationM?: number;
 }
 
 export interface PricingTier {
@@ -46,6 +61,7 @@ export interface Tour {
   groupSize: { min: number; max: number };
   heroImage: TourImage;
   gallery: TourImage[];
+  videos?: TourVideo[];
   highlights: { icon: string; text: string }[];
   itinerary: ItineraryDay[];
   experiencesIncluded: string[];

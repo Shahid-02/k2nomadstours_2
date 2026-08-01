@@ -36,9 +36,9 @@ export const nomadicExperienceOfPakistan: Tour = {
   },
   gallery: [
     { src: "/images/photos/Tomb_of_Bibi_Jiwindi.jpg", alt: "Ruins of Sirkap, a Greco-Buddhist city near Taxila", width: 1200, height: 800 },
-    { src: "/images/photos/IMG_0063.JPG", alt: "Lahore Fort viewed from the Badshahi Mosque Baradari", width: 2400, height: 1758 },
-    { src: "/images/photos/ThalayLaTrek.jpg", alt: "Tomb of Bibi Jawindi in Uch Sharif", width: 2400, height: 1465 },
-    { src: "/images/photos/Snow_Lake_under_twilight.jpg", alt: "Ancient streets of Mohenjo-Daro, UNESCO World Heritage Site", width: 1200, height: 800 },
+    { src: "/images/optimized/Tomb of Bibi Jawindi_2.jpeg", alt: "Lahore Fort viewed from the Badshahi Mosque Baradari", width: 2400, height: 1758 },
+    { src: "/images/optimized/Tomb of Bibi Jawindi_1.jpeg", alt: "Tomb of Bibi Jawindi in Uch Sharif", width: 2400, height: 1465 },
+    { src: "/images/optimized/Tomb of Bibi Jawindi_3.jpeg", alt: "Ancient streets of Mohenjo-Daro, UNESCO World Heritage Site", width: 1200, height: 800 },
     // { src: "/images/photos/Tomb_of_Bibi_Jiwindi.jpg", alt: "Shrine of Lal Shahbaz Qalandar in Sehwan Sharif", width: 1200, height: 800 },
     // { src: "/images/photos/Karachi.jpg", alt: "Coastline of Karachi along the Arabian Sea", width: 1200, height: 800 },
   ],

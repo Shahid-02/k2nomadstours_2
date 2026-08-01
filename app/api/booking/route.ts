@@ -15,7 +15,8 @@ export async function POST(request: Request) {
 
   const booking = parsed.data;
   const tour = allTours.find((t) => t.slug === booking.tourSlug);
-  const tourTitle = tour?.title ?? booking.tourSlug;
+  // The contact page sends "general-enquiry" when a visitor hasn't picked a route yet.
+  const tourTitle = tour?.title ?? (booking.tourSlug === "general-enquiry" ? "General enquiry" : booking.tourSlug);
   const tourUrl = tour ? `${siteConfig.url}${tourHref(tour)}` : siteConfig.url;
 
   const apiKey = process.env.RESEND_API_KEY;

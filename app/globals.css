@@ -4,148 +4,443 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ==========================================================================
+   K2 NOMADS TOURS — "Field Notes from 8,611 m"
+   --------------------------------------------------------------------------
+   Two surfaces, one accent.
+
+   GRANITE   — deep, cold basalt. Cinematic chapters: photography, story,
+               testimony, the call to act. Applied with `.dark` so every
+               shadcn primitive inside inherits the dark surface for free.
+   SNOWFIELD — cold near-white (never cream). Reading chapters: itinerary,
+               inclusions, pricing, questions.
+
+   The only saturated colour in the Karakoram is the gear people carry into
+   it. ALPENGLOW is therefore rationed: primary actions, route nodes,
+   altitude ticks, day markers. Nothing else.
+
+   Content surfaces share one radius (`--radius-plate`); controls are pills.
+   ========================================================================== */
+
 @theme inline {
+  /* --- surfaces & semantics (shadcn contract) --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-heading);
-  --color-sand-50: var(--sand-50);
-  --color-sand-100: var(--sand-100);
-  --color-sand-200: var(--sand-200);
-  --color-terracotta: var(--terracotta);
-  --color-terracotta-foreground: var(--terracotta-foreground);
-  --color-dusk: var(--dusk);
-  --color-dusk-foreground: var(--dusk-foreground);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-hairline: var(--hairline);
+
+  /* --- brand ramps --- */
+  --color-granite-950: var(--granite-950);
+  --color-granite-900: var(--granite-900);
+  --color-granite-850: var(--granite-850);
+  --color-granite-800: var(--granite-800);
+  --color-granite-700: var(--granite-700);
+  --color-granite-600: var(--granite-600);
+  --color-snow-50: var(--snow-50);
+  --color-snow-100: var(--snow-100);
+  --color-snow-200: var(--snow-200);
+  --color-snow-300: var(--snow-300);
+  --color-glacier-300: var(--glacier-300);
+  --color-glacier-500: var(--glacier-500);
+  --color-glacier-700: var(--glacier-700);
+  --color-alpenglow: var(--alpenglow);
+  --color-alpenglow-bright: var(--alpenglow-bright);
+  --color-alpenglow-deep: var(--alpenglow-deep);
+  --color-dawn: var(--dawn);
+
+  /* --- type families --- */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* --- fluid type scale ---
+     Floor is 12px, and it is a floor: `micro` carries real content (route
+     waypoints, durations, prices), not decoration, so nothing on the site is
+     allowed below it. The mono face is set wide-tracked and uppercase at these
+     sizes, which costs a little apparent size — hence 12px rather than 11. */
+  --text-micro: clamp(0.75rem, 0.735rem + 0.06vw, 0.8125rem);
+  --text-micro--line-height: 1.35;
+  --text-label: clamp(0.8125rem, 0.79rem + 0.09vw, 0.875rem);
+  --text-label--line-height: 1.35;
+  --text-body-sm: clamp(0.875rem, 0.855rem + 0.09vw, 0.9375rem);
+  --text-body-sm--line-height: 1.6;
+  --text-body: clamp(1rem, 0.975rem + 0.11vw, 1.0625rem);
+  --text-body--line-height: 1.65;
+  --text-lede: clamp(1.125rem, 1.03rem + 0.42vw, 1.375rem);
+  --text-lede--line-height: 1.55;
+  --text-heading: clamp(1.25rem, 1.12rem + 0.62vw, 1.75rem);
+  --text-heading--line-height: 1.2;
+  --text-title: clamp(1.75rem, 1.32rem + 1.9vw, 3.25rem);
+  --text-title--line-height: 1.04;
+  --text-display: clamp(2.25rem, 1.35rem + 4vw, 5.25rem);
+  --text-display--line-height: 0.98;
+  --text-hero: clamp(2.75rem, 1.1rem + 7.2vw, 8.5rem);
+  --text-hero--line-height: 0.9;
+
+  /* --- rhythm --- */
+  --spacing-gutter: clamp(1.25rem, 0.9rem + 1.6vw, 2.5rem);
+  --spacing-section: clamp(4.5rem, 2.8rem + 6.4vw, 9.5rem);
+
+  /* --- geometry ---
+     `plate` is the radius every content surface shares: cards, panels, image
+     frames, form blocks. One value, one place — round half the surfaces and
+     leave the rest sharp and the site reads as unfinished rather than mixed.
+     Interactive controls stay pills, so a clickable thing is still never
+     mistaken for a content block. */
+  --radius-plate: 0.875rem;
+  --radius-plate-inner: 0.5rem;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.625rem;
+  --radius-2xl: 0.875rem;
+  --radius-3xl: 1.125rem;
+  --radius-4xl: 1.5rem;
+
+  /* --- motion --- */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-glide: cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 :root {
-  --background: oklch(0.99 0.005 80);
-  --foreground: oklch(0.22 0.02 45);
+  /* Granite — cold basalt with a faint blue-violet cast, never neutral grey */
+  --granite-950: oklch(0.145 0.014 252);
+  --granite-900: oklch(0.185 0.016 252);
+  --granite-850: oklch(0.225 0.017 252);
+  --granite-800: oklch(0.27 0.018 252);
+  --granite-700: oklch(0.35 0.018 252);
+  --granite-600: oklch(0.46 0.017 252);
+
+  /* Snowfield — cold whites. Deliberately not cream. */
+  --snow-50: oklch(0.984 0.003 235);
+  --snow-100: oklch(0.963 0.005 235);
+  --snow-200: oklch(0.922 0.007 235);
+  --snow-300: oklch(0.865 0.009 235);
+
+  /* Glacier — meltwater teal, desaturated the way real ice is */
+  --glacier-300: oklch(0.83 0.038 212);
+  --glacier-500: oklch(0.665 0.058 212);
+  --glacier-700: oklch(0.475 0.052 214);
+
+  /* Alpenglow — expedition orange. The only saturated colour on the mountain. */
+  --alpenglow: oklch(0.6 0.195 38);
+  --alpenglow-deep: oklch(0.52 0.18 36);
+  --alpenglow-bright: oklch(0.735 0.185 47);
+  --dawn: oklch(0.83 0.125 72);
+
+  /* --- semantic: SNOWFIELD (default surface) --- */
+  --background: var(--snow-50);
+  --foreground: var(--granite-950);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.02 45);
+  --card-foreground: var(--granite-950);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.02 45);
-  --primary: oklch(0.56 0.15 40);
-  --primary-foreground: oklch(0.99 0.005 80);
-  --secondary: oklch(0.95 0.02 75);
-  --secondary-foreground: oklch(0.3 0.05 45);
-  --muted: oklch(0.96 0.015 75);
-  --muted-foreground: oklch(0.48 0.03 50);
-  --accent: oklch(0.32 0.07 265);
-  --accent-foreground: oklch(0.98 0.005 80);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.02 70);
-  --input: oklch(0.9 0.02 70);
-  --ring: oklch(0.56 0.15 40);
-  --sand-50: oklch(0.98 0.01 80);
-  --sand-100: oklch(0.95 0.02 78);
-  --sand-200: oklch(0.9 0.03 75);
-  --terracotta: oklch(0.56 0.15 40);
-  --terracotta-foreground: oklch(0.99 0.005 80);
-  --dusk: oklch(0.32 0.07 265);
-  --dusk-foreground: oklch(0.98 0.005 80);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --popover-foreground: var(--granite-950);
+  --primary: var(--alpenglow);
+  --primary-foreground: oklch(0.99 0.002 235);
+  --secondary: var(--snow-100);
+  --secondary-foreground: var(--granite-900);
+  --muted: var(--snow-100);
+  --muted-foreground: oklch(0.485 0.014 248);
+  --accent: var(--snow-100);
+  --accent-foreground: var(--granite-950);
+  --destructive: oklch(0.55 0.2 27);
+  --border: var(--snow-200);
+  --hairline: oklch(0.145 0.014 252 / 0.14);
+  --input: var(--snow-200);
+  --ring: var(--alpenglow);
+
+  --shadow-lift:
+    0 1px 2px oklch(0.145 0.014 252 / 0.05),
+    0 14px 40px -18px oklch(0.145 0.014 252 / 0.28);
+  --shadow-lift-hover:
+    0 2px 4px oklch(0.145 0.014 252 / 0.06),
+    0 28px 60px -22px oklch(0.145 0.014 252 / 0.36);
 }
 
+/* --- semantic: GRANITE. Applied per-section via class="dark" ---------------
+   Every shadcn primitive already listens to the `dark` variant, so a granite
+   chapter needs no bespoke component variants. */
 .dark {
-  --background: oklch(0.19 0.015 45);
-  --foreground: oklch(0.96 0.01 75);
-  --card: oklch(0.24 0.02 45);
-  --card-foreground: oklch(0.96 0.01 75);
-  --popover: oklch(0.24 0.02 45);
-  --popover-foreground: oklch(0.96 0.01 75);
-  --primary: oklch(0.65 0.15 40);
-  --primary-foreground: oklch(0.15 0.02 45);
-  --secondary: oklch(0.3 0.025 45);
-  --secondary-foreground: oklch(0.96 0.01 75);
-  --muted: oklch(0.28 0.02 45);
-  --muted-foreground: oklch(0.7 0.02 60);
-  --accent: oklch(0.55 0.1 265);
-  --accent-foreground: oklch(0.98 0.005 80);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.65 0.15 40);
-  --sand-50: oklch(0.28 0.02 45);
-  --sand-100: oklch(0.32 0.025 45);
-  --sand-200: oklch(0.38 0.03 45);
-  --terracotta: oklch(0.65 0.15 40);
-  --terracotta-foreground: oklch(0.15 0.02 45);
-  --dusk: oklch(0.55 0.1 265);
-  --dusk-foreground: oklch(0.98 0.005 80);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: var(--granite-950);
+  --foreground: var(--snow-50);
+  --card: var(--granite-900);
+  --card-foreground: var(--snow-50);
+  --popover: var(--granite-900);
+  --popover-foreground: var(--snow-50);
+  --primary: var(--alpenglow-bright);
+  --primary-foreground: var(--granite-950);
+  --secondary: var(--granite-850);
+  --secondary-foreground: var(--snow-50);
+  --muted: var(--granite-850);
+  --muted-foreground: oklch(0.715 0.014 240);
+  --accent: var(--granite-850);
+  --accent-foreground: var(--snow-50);
+  --destructive: oklch(0.7 0.19 25);
+  --border: oklch(1 0 0 / 0.13);
+  --hairline: oklch(1 0 0 / 0.16);
+  --input: oklch(1 0 0 / 0.16);
+  --ring: var(--alpenglow-bright);
+
+  --shadow-lift: 0 20px 50px -24px oklch(0 0 0 / 0.85);
+  --shadow-lift-hover: 0 32px 70px -26px oklch(0 0 0 / 0.95);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
   html {
     @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  /* Lenis drives scrolling; native smooth-scroll would fight it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  html.lenis {
+    scroll-behavior: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground text-body;
+    font-synthesis-weight: none;
+  }
+
+  /* Display face: tight, cold, engineered. Never used below --text-heading. */
+  h1,
+  h2,
+  h3,
+  .font-display {
+    @apply font-display;
+    font-variation-settings: "wdth" 96;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+  }
+
+  /* Data face: altitudes, day numbers, prices, route nodes, eyebrows. */
+  .font-mono,
+  code,
+  kbd {
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--alpenglow);
+    color: oklch(0.99 0.002 235);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklch, var(--foreground) 28%, transparent);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklch, var(--foreground) 45%, transparent);
+  }
+}
+
+@layer components {
+  /* Page gutter — one rule, every section, so verticals line up site-wide. */
+  .shell {
+    @apply mx-auto w-full max-w-[86rem] px-gutter;
+  }
+  .shell-narrow {
+    @apply mx-auto w-full max-w-3xl px-gutter;
+  }
+  .shell-wide {
+    @apply mx-auto w-full max-w-[110rem] px-gutter;
+  }
+
+  /* The one-pixel rule that holds the whole survey-document grid together. */
+  .hairline {
+    border-color: var(--hairline);
+  }
+
+  /* Any content surface: card, panel, image frame, form block.
+     `overflow: hidden` is part of the class on purpose — a rounded frame with
+     a square photograph inside it is the most common way this goes wrong. */
+  .plate {
+    border-radius: var(--radius-plate);
+    overflow: hidden;
+  }
+  .plate-inner {
+    border-radius: var(--radius-plate-inner);
+  }
+  /* Same radius, no clipping — for surfaces that deliberately hang something
+     outside their own box, like the itinerary cards placing a node on the
+     timeline rail to their left. */
+  .plate-edge {
+    border-radius: var(--radius-plate);
+  }
+
+  /* Eyebrow: mono, uppercase, tracked out like a map legend.
+     Sits on `micro` rather than `label` — at 0.24em tracking the extra step up
+     starts competing with the headline it is supposed to introduce. */
+  .eyebrow {
+    @apply font-mono text-micro uppercase;
+    letter-spacing: 0.24em;
+  }
+
+  /* Film grain — the Karakoram is never clean. Static, so it costs nothing. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Cinematic scrim.
+     Two layers: a bottom-weighted vertical wash that holds the headline block,
+     and a softer horizontal one down the left edge where every masthead sets
+     its type. Karakoram photographs are all high-frequency rock and snow — a
+     single gentle gradient loses the text in the scree. */
+  .scrim {
+    background:
+      linear-gradient(
+          to top,
+          oklch(0.1 0.012 252 / 0.94) 0%,
+          oklch(0.1 0.012 252 / 0.8) 20%,
+          oklch(0.1 0.012 252 / 0.46) 46%,
+          oklch(0.1 0.012 252 / 0.14) 72%,
+          oklch(0.1 0.012 252 / 0.42) 100%
+        ),
+      linear-gradient(
+        to right,
+        oklch(0.1 0.012 252 / 0.5) 0%,
+        oklch(0.1 0.012 252 / 0.18) 42%,
+        transparent 70%
+      );
+  }
+
+  /* A heavier, purely vertical scrim for small panels where the type block sits
+     in the lower third — the Kalash festival and Nanga Parbat plates are bright
+     enough end to end that the standard scrim loses the mono eyebrow in them. */
+  .scrim-deep {
+    background: linear-gradient(
+      to top,
+      oklch(0.1 0.012 252 / 0.96) 0%,
+      oklch(0.1 0.012 252 / 0.84) 34%,
+      oklch(0.1 0.012 252 / 0.38) 62%,
+      oklch(0.1 0.012 252 / 0.08) 88%,
+      transparent 100%
+    );
+  }
+
+  /* Glass, used only where something must float over moving imagery.
+     Opaque enough that navigation stays legible with a photograph sliding
+     underneath — 62% looked elegant on a flat page and became unreadable the
+     moment a headline scrolled behind it. */
+  .glass {
+    background: color-mix(in oklch, var(--background) 90%, transparent);
+    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .glass {
+      background: var(--background);
+    }
+  }
+
+  /* Link underline that grows from the origin rather than fading in. */
+  .link-wipe {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-expo);
+  }
+  .link-wipe:hover,
+  .link-wipe:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+@layer utilities {
+  .display-tight {
+    font-variation-settings: "wdth" 92;
+    letter-spacing: -0.04em;
+  }
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+  .shadow-lift-hover {
+    box-shadow: var(--shadow-lift-hover);
+  }
+  .mask-fade-r {
+    mask-image: linear-gradient(to right, black 82%, transparent 100%);
+  }
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+  }
+}
+
+@keyframes marquee-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-drift var(--marquee-duration, 44s) linear infinite;
+}
+
+/* Accessibility floor: motion is a garnish, never a dependency. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

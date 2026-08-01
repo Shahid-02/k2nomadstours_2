@@ -1,6 +1,13 @@
-import { Sparkle, UserCheck } from "lucide-react";
-import { Reveal } from "@/components/shared/reveal";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
+import { Eyebrow } from "@/components/shared/section-heading";
 
+/**
+ * A deliberately image-free band between two heavy visual sections.
+ *
+ * Two ruled columns, set on granite: what you will actually do, and who this
+ * trip suits. "Ideal for" is the honest half — it exists so the wrong traveler
+ * can rule themselves out here rather than at 4,700 m.
+ */
 export function ExperienceDetails({
   experiencesIncluded,
   idealFor,
@@ -8,31 +15,49 @@ export function ExperienceDetails({
   experiencesIncluded: string[];
   idealFor: string[];
 }) {
+  const columns = [
+    {
+      eyebrow: "On this journey",
+      title: "What you'll actually do",
+      items: experiencesIncluded,
+    },
+    {
+      eyebrow: "Honest fit",
+      title: "Who this trip suits",
+      items: idealFor,
+    },
+  ];
+
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="grid gap-10 sm:grid-cols-2">
-        <Reveal>
-          <h2 className="flex items-center gap-2 font-heading text-xl font-semibold">
-            <Sparkle className="size-5 text-primary" />
-            Experiences Included
-          </h2>
-          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            {experiencesIncluded.map((item) => (
-              <li key={item} className="border-b border-border pb-2.5">{item}</li>
-            ))}
-          </ul>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="flex items-center gap-2 font-heading text-xl font-semibold">
-            <UserCheck className="size-5 text-primary" />
-            Ideal For
-          </h2>
-          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            {idealFor.map((item) => (
-              <li key={item} className="border-b border-border pb-2.5">{item}</li>
-            ))}
-          </ul>
-        </Reveal>
+    <section className="dark grain relative bg-granite-950 py-section text-snow-50">
+      <div className="shell grid gap-14 lg:grid-cols-2 lg:gap-20">
+        {columns.map((column, columnIndex) => (
+          <div key={column.title}>
+            <Reveal delay={columnIndex * 0.08}>
+              <Eyebrow className="text-snow-50/55">{column.eyebrow}</Eyebrow>
+              <h2 className="mt-5 text-title display-tight">{column.title}</h2>
+            </Reveal>
+
+            <RevealGroup
+              className="mt-9 border-t border-white/12"
+              stagger={0.06}
+              as="ul"
+            >
+              {column.items.map((item, i) => (
+                <RevealItem
+                  key={item}
+                  as="li"
+                  className="flex items-baseline gap-5 border-b border-white/12 py-4"
+                >
+                  <span className="shrink-0 font-mono text-micro tabular-nums tracking-[0.16em] text-alpenglow-bright">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-body text-snow-50/80">{item}</span>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        ))}
       </div>
     </section>
   );

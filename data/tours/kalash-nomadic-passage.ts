@@ -19,7 +19,15 @@ export const kalashNomadicPassage: Tour = {
     width: 2400,
     height: 1606,
   },
-  gallery: [],
+  gallery: [
+    { src: "/images/optimized/kalash-festival.jpg", alt: "Kalash women in traditional dress dancing at a valley festival", width: 2400, height: 1606 },
+    { src: "/images/optimized/Kalash nomadic 1.jpeg", alt: "Kalash girls in traditional dress", width: 1200, height: 800 },
+    { src: "/images/optimized/Kalash nomadic 2.jpeg", alt: "Kalash women in their distinct black robes and elaborate headdresses", width: 2400, height: 1600 },
+    { src: "/images/optimized/Kalash nomadic 3.jpeg", alt: "Traditional Kalash village architecture with wooden houses", width: 1200, height: 800 },
+    { src: "/images/optimized/Kalash nomadic 5.jpeg", alt: "Traditional Kalash village architecture with wooden houses", width: 1200, height: 800 },
+    { src: "/images/optimized/Kalash nomadic 6.jpeg", alt: "Traditional Kalash village architecture with wooden houses", width: 1200, height: 800 },
+
+  ],
   highlights: [
     { icon: "users", text: "Deep engagement with the indigenous Kalash culture" },
     { icon: "mountain", text: "Dramatic shifts in terrain — arid valleys, alpine forests, and river-fed settlements" },
@@ -29,8 +37,8 @@ export const kalashNomadicPassage: Tour = {
     { day: 1, title: "Islamabad → Peshawar", activities: ["2.5–3 hour travel", "Qissa Khwani Bazaar walk and Peshawar Museum (Gandhara heritage)", "Evening food crawl"], accommodation: "Guesthouse" },
     { day: 2, title: "Peshawar → Chitral", activities: ["10–12 hour journey via the Lowari Tunnel", "Dramatic mountain transition through river valleys and remote villages"], accommodation: "Guesthouse" },
     { day: 3, title: "Explore Chitral", activities: ["Chitral Fort, Shahi Mosque, riverside walks", "Local bazaar exploration"], accommodation: "Guesthouse" },
-    { day: 4, title: "Chitral → Kalash Valley (Bumburet)", activities: ["2–3 hour transfer", "First interaction with Kalash culture", "Evening village walk"], accommodation: "Homestay" },
-    { day: 5, title: "Kalash Valley (Culture Immersion)", activities: ["Visit Kalash homes, traditional music & dance", "Short hikes between villages, learning Kalash history & beliefs"], accommodation: "Homestay" },
+    { day: 4, title: "Chitral → Kalash Valley (Bumburet)", activities: ["2–3 hour transfer", "First interaction with Kalash culture", "Evening village walk"], accommodation: "Homestay", image: { src: "/images/photos/Pakistan_valley_kalash_people_festival.jpg", alt: "Kalash people celebrating a festival in the valley", width: 1200, height: 800 } },
+    { day: 5, title: "Kalash Valley (Culture Immersion)", activities: ["Visit Kalash homes, traditional music & dance", "Short hikes between villages, learning Kalash history & beliefs"], accommodation: "Homestay", image: { src: "/images/photos/58dbaf127baf3.jpg", alt: "Cultural scene in Pakistan's northern valleys", width: 1200, height: 800 } },
     { day: 6, title: "Kalash → Chitral", activities: ["Morning farewell to the Kalash Valley", "Rest and leisure in Chitral"], accommodation: "Guesthouse" },
     { day: 7, title: "Chitral → Swat", activities: ["9–10 hour drive via Dir through forested landscapes and river valleys"], accommodation: "Guesthouse" },
     { day: 8, title: "Explore Swat Valley", activities: ["Malam Jabba chairlift views", "Optional Bahrain/Kalam visits", "Swat Museum"], accommodation: "Guesthouse" },

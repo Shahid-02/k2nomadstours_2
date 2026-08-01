@@ -1,94 +1,115 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, Gauge, CalendarRange, Users, MapPin } from "lucide-react";
+import { ParallaxImage } from "@/components/motion/parallax";
+import { TextRevealOnLoad } from "@/components/motion/text-reveal";
+import { RouteLine } from "@/components/shared/route-line";
+import { DifficultyMeter } from "@/components/shared/difficulty-meter";
+import { Cta } from "@/components/shared/cta";
 import { Button } from "@/components/ui/button";
+import { Magnetic } from "@/components/motion/magnetic";
+import { durationLabel, groupSizeLabel, fromPrice } from "@/lib/format";
 import type { Tour } from "@/types/tour";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: "easeOut" as const },
-  }),
-};
-
+/**
+ * TOUR HERO.
+ *
+ * The route line runs full width beneath the title, so the first thing anyone
+ * learns about a trip is its actual shape — where it starts, how far out it
+ * goes, whether it comes back the same way. Duration, difficulty, season and
+ * price sit underneath as a survey block, because those four facts decide
+ * almost every enquiry we get.
+ */
 export function TourHero({ tour }: { tour: Tour }) {
-  const start = tour.route[0];
-  const end = tour.route[tour.route.length - 1];
-  const routeLabel = start === end ? `Round trip from ${start}` : `${start} → ${end}`;
-  const durationLabel =
-    tour.durationDays.min === tour.durationDays.max
-      ? `${tour.durationDays.min} days`
-      : `${tour.durationDays.min}–${tour.durationDays.max} days`;
+  const price = fromPrice(tour);
 
   const facts = [
-    { icon: MapPin, label: routeLabel },
-    { icon: Clock, label: durationLabel },
-    { icon: Gauge, label: tour.difficulty },
-    { icon: CalendarRange, label: tour.bestSeason },
-    { icon: Users, label: `${tour.groupSize.min}–${tour.groupSize.max} travelers` },
+    { label: "Duration", value: durationLabel(tour.durationDays) },
+    { label: "Best season", value: tour.bestSeason },
+    { label: "Group size", value: `${groupSizeLabel(tour.groupSize)} travelers` },
+    { label: "From", value: price ? `${price.label} per person` : "On request" },
   ];
 
   return (
-    <section className="relative flex min-h-[70vh] items-end overflow-hidden">
-      <Image
+    <section className="dark grain relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-granite-950 text-snow-50">
+      <ParallaxImage
         src={tour.heroImage.src}
         alt={tour.heroImage.alt}
-        fill
         priority
+        strength={0.16}
+        className="absolute inset-0"
         sizes="100vw"
-        className="object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
+      >
+        <div className="scrim absolute inset-0" />
+      </ParallaxImage>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 pb-12 pt-32 text-white sm:px-6 lg:px-8">
+      <div className="shell relative pb-14 pt-32 lg:pb-20">
         <motion.p
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-sm font-medium uppercase tracking-wider text-white/80"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="eyebrow flex items-center gap-3 text-snow-50/65"
         >
+          <span aria-hidden="true" className="h-px w-8 bg-alpenglow-bright" />
           {tour.style}
         </motion.p>
-        <motion.h1
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="mt-2 font-heading text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+
+        <TextRevealOnLoad
+          as="h1"
+          text={tour.title}
+          delay={0.3}
+          className="mt-6 max-w-[16ch] text-display display-tight font-semibold"
+        />
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+          className="mt-5 max-w-xl text-lede text-snow-50/78"
         >
-          {tour.title}
-        </motion.h1>
-        <motion.p custom={2} initial="hidden" animate="visible" variants={fadeUp} className="mt-3 max-w-2xl text-white/85">
           {tour.tagline}
         </motion.p>
 
-        <motion.div
-          custom={3}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/90"
-        >
-          {facts.map((fact) => (
-            <span key={fact.label} className="flex items-center gap-1.5">
-              <fact.icon className="size-4" />
-              {fact.label}
-            </span>
-          ))}
-        </motion.div>
+        <RouteLine
+          route={tour.route}
+          variant="full"
+          className="mt-12 hidden text-snow-50 sm:block"
+        />
+        <RouteLine route={tour.route} className="mt-8 text-snow-50/70 sm:hidden" />
 
-        <motion.div custom={4} initial="hidden" animate="visible" variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
-          <Button size="lg" nativeButton={false} render={<a href="#booking" />}>
-            Book This Tour
-          </Button>
-          <Button size="lg" variant="outline" nativeButton={false} className="border-white/40 bg-white/5 text-white hover:bg-white/15" render={<a href="#itinerary" />}>
-            View Itinerary
-          </Button>
+        <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-white/15 pt-7 lg:grid-cols-5">
+          {facts.map((fact) => (
+            <div key={fact.label}>
+              <dt className="font-mono text-micro uppercase tracking-[0.18em] text-snow-50/50">
+                {fact.label}
+              </dt>
+              <dd className="mt-1.5 text-body-sm">{fact.value}</dd>
+            </div>
+          ))}
+          <div>
+            <dt className="font-mono text-micro uppercase tracking-[0.18em] text-snow-50/50">
+              Difficulty
+            </dt>
+            <dd className="mt-2">
+              <DifficultyMeter difficulty={tour.difficulty} />
+            </dd>
+          </div>
+        </dl>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
+          className="mt-10 flex flex-wrap items-center gap-3"
+        >
+          <Cta href="#reserve" size="xl">
+            Check dates
+          </Cta>
+          <Magnetic strength={0.2}>
+            <Button nativeButton={false} variant="glass" size="xl" render={<a href="#itinerary" />}>
+              Read the itinerary
+            </Button>
+          </Magnetic>
         </motion.div>
       </div>
     </section>
