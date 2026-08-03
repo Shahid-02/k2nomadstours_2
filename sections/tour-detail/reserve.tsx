@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/shared/field";
+import { Honeypot, readHoneypot } from "@/components/shared/honeypot";
 import { Reveal } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/shared/section-heading";
 import { TextReveal } from "@/components/motion/text-reveal";
@@ -62,13 +63,14 @@ export function Reserve({ tour }: { tour: Tour }) {
     setValue("message", `Interested in the “${tier.label}” rate.`);
   }
 
-  async function onSubmit(values: BookingFormValues) {
+  async function onSubmit(values: BookingFormValues, event?: React.BaseSyntheticEvent) {
+    const company = readHoneypot(event);
     setSubmitError("");
     try {
       const res = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, company }),
       });
       if (res.ok) {
         setSubmittedEmail(values.email);
@@ -200,6 +202,7 @@ export function Reserve({ tour }: { tour: Tour }) {
                 className="plate grid gap-6 border bg-background p-6 hairline sm:grid-cols-2 sm:p-8"
               >
                 <input type="hidden" {...register("tourSlug")} />
+                <Honeypot />
 
                 <Field
                   className="sm:col-span-2"

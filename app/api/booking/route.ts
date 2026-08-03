@@ -20,6 +20,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Malformed request body." }, { status: 400 });
   }
 
+  // Honeypot. `company` is a hidden, unlabelled, tab-skipped field that no
+  // human fills in. Bots that blindly complete every input do. It is checked
+  // before validation and deliberately kept out of `bookingSchema`, which
+  // strips unknown keys — so nothing downstream ever sees it.
+  if (
+    typeof body === "object" &&
+    body !== null &&
+    typeof (body as { company?: unknown }).company === "string" &&
+    (body as { company: string }).company.trim() !== ""
+  ) {
+    // Logged rather than silently dropped, so a false positive is visible.
+    console.warn("Booking rejected: honeypot field was filled.");
+    return NextResponse.json({ ok: true });
+  }
+
   const parsed = bookingSchema.safeParse(body);
 
   if (!parsed.success) {
@@ -34,8 +49,21 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn("RESEND_API_KEY is not set — booking request logged instead of emailed:", booking);
-    return NextResponse.json({ ok: true });
+    // This used to log the booking and return { ok: true }. The traveler was
+    // told "Request received" while the enquiry went nowhere but stdout, so a
+    // misconfigured deploy lost every booking with no outward signal. Failing
+    // is the honest outcome: the forms already offer WhatsApp on error.
+    console.error(
+      "RESEND_API_KEY is not set — booking could NOT be delivered:",
+      JSON.stringify({ tourSlug: booking.tourSlug, email: booking.email })
+    );
+    return NextResponse.json(
+      {
+        error:
+          "We couldn't send that just now. Please message us on WhatsApp and we'll pick it up there.",
+      },
+      { status: 503 }
+    );
   }
 
   const resend = new Resend(apiKey);

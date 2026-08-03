@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/shared/field";
+import { Honeypot, readHoneypot } from "@/components/shared/honeypot";
 import { bookingSchema, type BookingFormValues } from "@/lib/validations/booking";
 import { siteConfig } from "@/data/site";
 
@@ -40,13 +41,14 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
     defaultValues: { tourSlug: "general-enquiry", groupSize: 2 },
   });
 
-  async function onSubmit(values: BookingFormValues) {
+  async function onSubmit(values: BookingFormValues, event?: React.BaseSyntheticEvent) {
+    const company = readHoneypot(event);
     setSubmitError("");
     try {
       const res = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, company }),
       });
       if (res.ok) {
         setSubmittedEmail(values.email);
@@ -99,6 +101,8 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
       noValidate
       className="plate grid gap-6 border bg-card p-6 hairline sm:grid-cols-2 sm:p-8"
     >
+      <Honeypot />
+
       <Field
         className="sm:col-span-2"
         id="tourSlug"
