@@ -206,7 +206,35 @@ The fourth is in a client component, duplicating a server fallback `lib/tour-pag
 
 **Empty directory:** `hooks/` — empty, but registered as `@/hooks` in `components.json`.
 
-**Orphaned assets** (on disk, referenced nowhere): 12 photos (`IMG_0044.JPG`, `IMG_0063.JPG`, `IMG_0064.JPG`, `IMG_6255.jpg`, `IMG_8241.JPG`, `IMG_8302.JPG`, `IMG_9816.JPG`, `Khoburtse.jpeg`, `Rush-Lake1.jpg`, `1200px-Lahore_Fort_view_from_Baradari.jpg`, `Afroze_Numa_(Taseer_Beyg).jpg`, `knt-new.png`) + 5 Next template SVGs (`next.svg`, `vercel.svg`, `globe.svg`, `window.svg`, `file.svg`) + 38 of 39 placeholder SVGs (only `nomadic-experience-of-pakistan.ts:233` references one).
+**Orphaned assets.**
+
+> **⚠ CORRECTED 2026-08-03 during Phase 1b execution.** This section originally
+> claimed **12** orphaned photos. That was wrong — produced by a regex
+> (`/images/[a-zA-Z0-9_./-]+`) that truncated on filenames containing parens,
+> commas and spaces, and by a case-sensitive match. **Only 3 photos are
+> genuinely orphaned.** Re-verified by testing each on-disk basename for any
+> case-insensitive occurrence in source.
+
+Genuinely orphaned: **3 photos** (`IMG_6255.jpg`, `Khoburtse.jpeg`, `knt-new.png`) + **5** Next template SVGs (`next.svg`, `vercel.svg`, `globe.svg`, `window.svg`, `file.svg`) + **38 of 39** placeholder SVGs — the survivor is `hero-nomadic.svg`, the OG image at `data/tours/nomadic-experience-of-pakistan.ts:233`.
+
+**Wrongly listed as orphans — all 9 are in use:**
+
+| File | Actually used by |
+|---|---|
+| `IMG_0044.JPG`, `IMG_0063.JPG`, `IMG_0064.JPG`, `IMG_8241.JPG`, `IMG_8302.JPG`, `IMG_9816.JPG`, `1200px-Lahore_Fort_view_from_Baradari.jpg`, `Afroze_Numa_(Taseer_Beyg).jpg` | **Source masters** consumed by `scripts/optimize-photos.sh`, which generates the `optimized/` images the site renders. Deleting them would destroy the pipeline Phase 4 needs |
+| `Rush-Lake1.jpg` | `data/tours/rakaposhi-base-camp-and-rush-lake-trek.ts:23,58` — referenced as `/images/photos/Rush-**l**ake1.jpg` (lowercase L) |
+
+Also orphaned, not previously listed: `public/images/optimized/Kalash nomadic.jpg` (the numbered `Kalash nomadic 1..6.jpeg` siblings *are* used). **Left in place — outside the approved deletion set.**
+
+### A-6b · 🟠 High — Two broken asset references (pre-existing, NOT introduced by this refactor)
+
+| Reference | Site | Status |
+|---|---|---|
+| `/video/hunza-2.mp4` | `data/tours/discover-hunza-valley.ts:23` | **File has never existed in the repo.** It sits in the `gallery: TourImage[]` array, so it renders through `next/image` — which cannot decode an `.mp4` regardless. Breaks a gallery frame on the Discover Hunza Valley page |
+| `/images/photos/Rush-lake1.jpg` | `rakaposhi-base-camp-and-rush-lake-trek.ts:23,58` | Case mismatch — on-disk file is `Rush-**L**ake1.jpg`. **Resolves on macOS (case-insensitive FS), 404s on Linux/Vercel** |
+| `/images/photos/Karachi.jpg` | `nomadic-experience-of-pakistan.ts:43` | Inside a commented-out line — inert, no action |
+
+Both live issues are **data defects, not code**. Not scheduled — flagged for your decision.
 
 **Dead code inside live files:**
 
