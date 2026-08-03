@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Reveal } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/shared/section-heading";
 import { cn } from "@/lib/utils";
+import { FALLBACK_VIDEO } from "@/data/videos";
 import type { TourImage, TourVideo } from "@/types/tour";
 
 export type GalleryItem =
@@ -34,10 +35,7 @@ export function Gallery({
   const [showAll, setShowAll] = useState<boolean>(false);
 
   // Default video if none provided
-  const activeVideos =
-    videos && videos.length > 0
-      ? videos
-      : [{ src: "/video/hunza.mp4", title: "Hunza Expedition Footage" }];
+  const activeVideos = videos && videos.length > 0 ? videos : [FALLBACK_VIDEO];
 
   // Combine videos first, followed by all images for full Lightbox catalog
   const allItems: GalleryItem[] = [

@@ -1,12 +1,13 @@
 import fs from "fs";
 import path from "path";
 import type { TourVideo } from "@/types/tour";
+import { FALLBACK_VIDEO } from "@/data/videos";
 
 export function getPublicVideos(): TourVideo[] {
   try {
     const videoDir = path.join(process.cwd(), "public", "video");
     if (!fs.existsSync(videoDir)) {
-      return [{ src: "/video/hunza.mp4", title: "Hunza Expedition Footage" }];
+      return [FALLBACK_VIDEO];
     }
 
     const files = fs.readdirSync(videoDir);
@@ -27,11 +28,9 @@ export function getPublicVideos(): TourVideo[] {
         };
       });
 
-    return videos.length > 0
-      ? videos
-      : [{ src: "/video/hunza.mp4", title: "Hunza Expedition Footage" }];
+    return videos.length > 0 ? videos : [FALLBACK_VIDEO];
   } catch (error) {
     console.error("Error reading public/video directory:", error);
-    return [{ src: "/video/hunza.mp4", title: "Hunza Expedition Footage" }];
+    return [FALLBACK_VIDEO];
   }
 }
