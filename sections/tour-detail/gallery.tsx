@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import Image from "next/image";
 import { ChevronDown, ChevronLeft, ChevronRight, Expand, Play } from "lucide-react";
 import { motion } from "framer-motion";
@@ -213,21 +213,31 @@ function Lightbox({
     [index, items.length, setIndex]
   );
 
-  useEffect(() => {
-    if (index === null) return;
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "ArrowRight") step(1);
-      if (event.key === "ArrowLeft") step(-1);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [index, step]);
+  // Scoped to the dialog rather than the window: a global listener also fires
+  // while focus is on the close button or anything else the dialog contains,
+  // and would keep firing for any other component that opens over it.
+  const onKeyDown = useCallback(
+    (event: ReactKeyboardEvent<HTMLElement>) => {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        step(1);
+      }
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        step(-1);
+      }
+    },
+    [step]
+  );
 
   const currentItem = index !== null ? items[index] : null;
 
   return (
     <Dialog open={index !== null} onOpenChange={(open) => !open && setIndex(null)}>
-      <DialogContent className="max-w-5xl border-0 bg-transparent p-0 shadow-none sm:max-w-5xl">
+      <DialogContent
+        onKeyDown={onKeyDown}
+        className="max-w-5xl border-0 bg-transparent p-0 shadow-none sm:max-w-5xl"
+      >
         <DialogTitle className="sr-only">
           {currentItem
             ? currentItem.type === "video"

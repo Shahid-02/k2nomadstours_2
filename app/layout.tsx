@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  /** Self-referencing canonical for `/`; every other route sets its own. */
+  alternates: { canonical: "/" },
   keywords: [
     "K2 base camp trek",
     "Karakoram trekking",

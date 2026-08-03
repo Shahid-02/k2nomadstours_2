@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useId, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -10,6 +10,7 @@ import { Eyebrow } from "@/components/shared/section-heading";
 import { TextReveal } from "@/components/motion/text-reveal";
 import { GlassStat } from "@/components/shared/glass-stat";
 import { presentItem } from "@/lib/inclusion-icons";
+import { useTabListKeys } from "@/hooks/use-tab-list-keys";
 import { credentials, getRating } from "@/data/credentials";
 import { cn } from "@/lib/utils";
 import type { Tour } from "@/types/tour";
@@ -30,9 +31,15 @@ import type { Tour } from "@/types/tour";
  */
 type Panel = "included" | "excluded";
 
+/** Tab order, so the arrow keys and the rendered order cannot drift apart. */
+const PANEL_ORDER: Panel[] = ["included", "excluded"];
+
 export function InclusionsExclusions({ tour }: { tour: Tour }) {
   const [panel, setPanel] = useState<Panel>("included");
   const reduced = useReducedMotion();
+  const tabsId = useId();
+  const selectByIndex = useCallback((next: number) => setPanel(PANEL_ORDER[next]), []);
+  const onTabKeys = useTabListKeys(PANEL_ORDER.length, PANEL_ORDER.indexOf(panel), selectByIndex);
 
   const rating = getRating();
   const items = panel === "included" ? tour.inclusions : tour.exclusions;
@@ -106,6 +113,7 @@ export function InclusionsExclusions({ tour }: { tour: Tour }) {
             <div
               role="tablist"
               aria-label="Price coverage"
+              onKeyDown={onTabKeys}
               className="mt-9 inline-flex rounded-full border bg-muted/60 p-1 hairline"
             >
               {tabs.map((tab) => {
@@ -115,7 +123,10 @@ export function InclusionsExclusions({ tour }: { tour: Tour }) {
                     key={tab.id}
                     role="tab"
                     type="button"
+                    id={`${tabsId}-tab-${tab.id}`}
+                    aria-controls={`${tabsId}-panel`}
                     aria-selected={active}
+                    tabIndex={active ? 0 : -1}
                     onClick={() => setPanel(tab.id)}
                     className={cn(
                       "relative flex items-center gap-2.5 rounded-full px-5 py-2.5 text-body-sm font-medium transition-colors duration-300",
@@ -153,6 +164,10 @@ export function InclusionsExclusions({ tour }: { tour: Tour }) {
           <AnimatePresence mode="wait">
             <motion.ul
               key={panel}
+              id={`${tabsId}-panel`}
+              role="tabpanel"
+              aria-labelledby={`${tabsId}-tab-${panel}`}
+              tabIndex={0}
               initial="hidden"
               animate="visible"
               exit="exit"

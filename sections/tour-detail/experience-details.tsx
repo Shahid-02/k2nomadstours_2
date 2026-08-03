@@ -35,7 +35,9 @@ export function ExperienceDetails({
           <div key={column.title}>
             <Reveal delay={columnIndex * 0.08}>
               <Eyebrow className="text-snow-50/55">{column.eyebrow}</Eyebrow>
-              <h2 className="mt-5 text-title display-tight">{column.title}</h2>
+              {/* h3: these two columns sit under the page's own h1 and the
+                  section headings above them, not alongside. */}
+              <h3 className="mt-5 text-title display-tight">{column.title}</h3>
             </Reveal>
 
             <RevealGroup

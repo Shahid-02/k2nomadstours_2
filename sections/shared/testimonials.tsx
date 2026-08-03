@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { Eyebrow } from "@/components/shared/section-heading";
+import { useTabListKeys } from "@/hooks/use-tab-list-keys";
 import { cn } from "@/lib/utils";
 import type { Review } from "@/types/tour";
 
@@ -27,6 +28,8 @@ export function Testimonials({
   eyebrow?: string;
 }) {
   const [index, setIndex] = useState(0);
+  const tabsId = useId();
+  const onTabKeys = useTabListKeys(reviews.length, index, setIndex);
   if (reviews.length === 0) return null;
 
   const review = reviews[index];
@@ -67,7 +70,13 @@ export function Testimonials({
           )}
         </div>
 
-        <div className="mt-12 min-h-[16rem] border-t border-white/10 pt-10 sm:min-h-[18rem]">
+        <div
+          id={`${tabsId}-panel`}
+          role={reviews.length > 1 ? "tabpanel" : undefined}
+          aria-labelledby={reviews.length > 1 ? `${tabsId}-tab-${index}` : undefined}
+          tabIndex={reviews.length > 1 ? 0 : undefined}
+          className="mt-12 min-h-[16rem] border-t border-white/10 pt-10 sm:min-h-[18rem]"
+        >
           <AnimatePresence mode="wait">
             <motion.figure
               key={`${review.name}-${review.date}`}
@@ -101,6 +110,7 @@ export function Testimonials({
           <div
             role="tablist"
             aria-label="Traveler accounts"
+            onKeyDown={onTabKeys}
             className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/10 pt-6"
           >
             {reviews.map((item, i) => (
@@ -108,7 +118,10 @@ export function Testimonials({
                 key={`${item.name}-${item.date}`}
                 type="button"
                 role="tab"
+                id={`${tabsId}-tab-${i}`}
+                aria-controls={`${tabsId}-panel`}
                 aria-selected={i === index}
+                tabIndex={i === index ? 0 : -1}
                 onClick={() => setIndex(i)}
                 className={cn(
                   "font-mono text-micro uppercase tracking-[0.18em] transition-colors duration-300",
