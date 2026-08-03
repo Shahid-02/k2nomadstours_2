@@ -1,5 +1,11 @@
 # K2Nomadz Tours — Full-Stack Audit
 
+> **✅ COMPLETE — Phases 1–8 executed on branch `refactor/optimization`.**
+> Jump to the [Final Report](#final-report) for outcomes, or read on for the
+> original findings. The findings below are preserved as written (with one
+> correction marked in A-6) so the plan can be checked against the result.
+
+
 **Audited:** 2026-08-03 · **Commit:** `ab1b0ba` (working tree clean) · **Stack:** Next.js 16.2.12 (App Router, Turbopack), React 19.2.4, TypeScript 5, Tailwind 4
 
 ---
@@ -510,3 +516,83 @@ Per phase: `npm run build` → `npx tsc --noEmit` → `npm run lint` → fix →
 ### Verification method
 
 **Pixel-identity proof.** 30 prerendered HTML files captured from `.next/server/app/**/*.html` at `ab1b0ba` before any edit. After each phase, rebuild and `diff -r`. **Phases 1, 2, 3, 5 must produce zero HTML diffs.** Phases 4, 6, 7 produce diffs by design — each reviewed line by line and reported before commit.
+
+---
+
+# Final Report
+
+**Branch:** `refactor/optimization` · **Baseline:** `ab1b0ba` · **Head:** `116fd92` · 11 commits · working tree clean
+
+## Outcomes vs. baseline
+
+| Metric | Before | After | Δ |
+|---|---:|---:|---:|
+| **`public/` total** | 337 MB | **93 MB** | **−72%** |
+| photos | 195 MB | 42 MB | −78% |
+| video | 82 MB | 4.9 MB | −94% |
+| optimized (untouched) | 46 MB | 46 MB | — |
+| **Client JS** | 1900 kB | **1752 kB** | −8% |
+| chunks | 26 | 25 | −1 |
+| shared shell | 446.1 kB | 446.1 kB | — |
+| **CSS** | 128 kB / 21 kB gz | **96 kB / 17 kB gz** | −25% |
+| **Lint** | 1 error, 4 warnings | **green** | ✅ |
+| `tsc --noEmit` | clean | clean | ✅ |
+| Build | 35/35 pages | 34/34 pages¹ | ✅ |
+
+¹ The route table is unchanged. `/api/booking` simply stopped taking part in the static-generation pass once it was explicitly declared `force-dynamic`; it was always `ƒ Dynamic`.
+
+## Findings resolved
+
+| ID | Severity | Finding | Phase |
+|---|---|---|---|
+| A-1 | 🔴 | 82 MB video autoplaying on 21 pages — **and it was HEVC, so it likely never played in Chrome/Firefox** | 4 |
+| A-2 | 🔴 | 9.7 MB LCP hero; 25 oversized photos | 4 |
+| B-1 | 🔴 | `POST /api/booking` returned unhandled 500 on malformed JSON | 5 |
+| B-2 | 🟠 | No abuse protection on the booking endpoint | 6 |
+| B-3 | 🟠 | Synchronous `fs` scan per page render | 5 |
+| C-1 | 🟠 | Empty `next.config.ts`, no security headers | 6 |
+| C-2 | 🟠 | Missing API key silently discarded bookings and reported success | 6 |
+| C-4 | 🟡 | JSON-LD emitted without `<` escaping | 3 |
+| A-4a/c | 🟡 | 4× hand-rolled eyebrow, 4× raw JSON-LD tag | 3 |
+| A-4b | 🟡 | 4× duplicated video fallback literal | 2 |
+| A-5 | 🟡 | Byte-identical `Field`/`EnquiryField` | 3 |
+| A-6 | 🟡 | 7 dead files, 46 orphaned assets, dead code in live files | 1, 1b |
+| A-6b | 🟠 | 2 broken asset references (one 404ing on Linux only) | 2b |
+| D-1 | 🟡 | Home page had no self-referencing canonical | 7 |
+| D-2a/b/c | 🟡 | Tabs without a keyboard model; window-scoped lightbox keys; heading skips | 7 |
+| D-4 | 🟡 | Lint red | 1 |
+
+## Deliberately not shipped, with evidence
+
+- **`next/dynamic` (A-3).** Measured, not assumed: total client JS **1748 → 1872 kB**, chunks **25 → 30**, shared shell **unchanged**. With `ssr: true` these components still render and hydrate immediately on every page, so splitting removed nothing from the initial payload. Reverted.
+- **`FactList` (A-4d).** On inspection these four `dt/dd` blocks are not one component — only two share both class sets (2×, below the 3× bar). A component covering all four needs ~6 props and would exceed the call sites it replaces.
+- **2 of 4 eyebrows (A-4a).** `hero.tsx:77` and `tour-hero.tsx:51` are `motion.p` with their own animation props; absorbing them needs a render-prop API costing more than the 8 lines saved.
+- **B-4** (`getDayMetrics` memoisation) and **D-2d** (pricing-radio focus state) — both require editing SENSITIVE files.
+
+## Corrections made during execution
+
+Two of my own audit findings were wrong and were caught by verification rather than shipped:
+
+1. **A-6 claimed 12 orphaned photos; only 3 were.** The detection regex truncated on filenames containing parens, commas and spaces, and matched case-sensitively. Eight of the nine were **source masters** for `scripts/optimize-photos.sh` — deleting them would have destroyed the pipeline Phase 4 depends on. The ninth, `Rush-Lake1.jpg`, is referenced with different casing. Corrected in commit `fdfb5cc`.
+2. **During Phase 1b I briefly deleted the wrong placeholder**, keeping an orphan and removing `hero-nomadic.svg`, which is a live OG image. Caught because every referenced asset was checked against disk — **a green build proves nothing here, as Next never validates `public/` paths.** Restored before commit.
+
+## Known-remaining items
+
+| Item | Note |
+|---|---|
+| **Newsletter is a stub** | `newsletter.tsx:24-28` discards the email and shows "You're on the list." Real product gap — you asked to fix this later |
+| **6 npm vulnerabilities** (4 high) | All transitive. `sharp` is reachable via the image optimizer. `npm audit fix --force` installs **`next@9.3.3`** — never run it. Fix is a Next release |
+| **CSP is Report-Only** | Enforcing needs violation data first — framer-motion writes inline styles everywhere |
+| **`Karachi.jpg`** | Referenced only from a commented-out line; inert |
+| **Copyright year** | Freezes at build time (`footer.tsx:134`) |
+| **B-4, D-2d** | Blocked on SENSITIVE files |
+
+## What changed visually, in total
+
+Across all 30 prerendered pages, compared to `ab1b0ba`, the complete set of class and text deltas is:
+
+- `class="hidden"` + text `Company` on **22 pages** — the honeypot, `display:none` and `aria-hidden`
+- 3 gallery frames on **1 page** — the Hunza tour, which previously had a single broken `.mp4` gallery entry
+- One `src` casing fix on **1 page** — `Rush-lake1.jpg` → `Rush-Lake1.jpg`
+
+Nothing else moved. Phases 1, 2, 3 and 5 produced **zero** markup change; Phase 7 changed only semantics and ARIA, verified by identical class sets and identical visible text on every page.
