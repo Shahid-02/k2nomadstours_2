@@ -134,14 +134,6 @@ export function Footer() {
           © {new Date().getFullYear()} K2 Nomads Tours · All rights reserved
         </p>
       </div>
-
-      {/* Oversized wordmark, clipped by the viewport edge — the sign at the trailhead. */}
-      {/* <p
-        aria-hidden="true"
-        className="pointer-events-none select-none whitespace-nowrap px-gutter pb-2 font-display text-[clamp(4rem,15vw,13rem)] font-semibold leading-[0.8] tracking-[-0.05em] text-white/[0.045]"
-      >
-        K2 NOMADS
-      </p> */}
     </footer>
   );
 }

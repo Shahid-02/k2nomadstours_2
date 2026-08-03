@@ -2,12 +2,11 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/shared/section-heading";
 import { TourCard } from "@/components/shared/tour-card";
-import { getAllTours, tourHref } from "@/data/tours";
-import type { Tour } from "@/types/tour";
+import { getAllTours } from "@/data/tours";
 
 const INITIAL_COUNT = 9;
 
@@ -24,7 +23,6 @@ export function JourneyIndexSection() {
   const [expanded, setExpanded] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const visible = expanded ? allTours : allTours.slice(0, INITIAL_COUNT);
   const hasMore = allTours.length > INITIAL_COUNT;
 
   return (
@@ -113,17 +111,6 @@ export function JourneyIndexSection() {
             </button>
           </motion.div>
         )}
-        {/* "Show less" toggle — uncomment below and remove the block above to
-            allow collapsing back to the initial 9 cards:
-        {hasMore && (
-          <motion.div ...>
-            <button onClick={() => setExpanded((prev) => !prev)}>
-              {expanded ? "Show less" : "More tours"}
-              {expanded ? <ChevronUp /> : <ChevronDown />}
-            </button>
-          </motion.div>
-        )}
-        */}
       </div>
     </section>
   );

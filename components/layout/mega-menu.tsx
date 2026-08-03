@@ -364,7 +364,7 @@ export function MegaMenu({ group }: { group: NavGroup }) {
                       Need help choosing?
                     </span>
                     <span className="block text-[11px] text-neutral-500 font-normal">
-                      We're here to help you plan
+                      We&apos;re here to help you plan
                     </span>
                   </div>
                 </a>
