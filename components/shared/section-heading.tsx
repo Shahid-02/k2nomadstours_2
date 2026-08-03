@@ -12,14 +12,31 @@ export function Eyebrow({
   children,
   className,
   rule = true,
+  /**
+   * `bright` is for eyebrows sitting on granite or over a photograph, where
+   * the standard alpenglow is too dark to read against the scrim.
+   */
+  tone = "default",
+  ruleWidth = "w-8",
 }: {
   children: ReactNode;
   className?: string;
   rule?: boolean;
+  tone?: "default" | "bright";
+  ruleWidth?: string;
 }) {
   return (
     <p className={cn("eyebrow flex items-center gap-3 text-muted-foreground", className)}>
-      {rule && <span aria-hidden="true" className="h-px w-8 bg-alpenglow" />}
+      {rule && (
+        <span
+          aria-hidden="true"
+          className={cn(
+            "h-px",
+            ruleWidth,
+            tone === "bright" ? "bg-alpenglow-bright" : "bg-alpenglow"
+          )}
+        />
+      )}
       {children}
     </p>
   );

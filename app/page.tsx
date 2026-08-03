@@ -7,6 +7,7 @@ import { WhyK2 } from "@/sections/home/why-k2";
 import { Ranges } from "@/sections/home/ranges";
 import { Testimonials } from "@/sections/shared/testimonials";
 import { FaqAccordion } from "@/sections/shared/faq-accordion";
+import { JsonLd } from "@/components/shared/json-ld";
 import { testimonials } from "@/data/testimonials";
 import { globalFaqs } from "@/data/faqs";
 import { siteConfig } from "@/data/site";
@@ -36,10 +37,7 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <HomeHero />
       <PlaceTicker />
       <Statement />

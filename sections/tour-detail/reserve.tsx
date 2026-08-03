@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Field } from "@/components/shared/field";
 import { Reveal } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/shared/section-heading";
 import { TextReveal } from "@/components/motion/text-reveal";
@@ -300,32 +300,3 @@ export function Reserve({ tour }: { tour: Tour }) {
   );
 }
 
-function Field({
-  id,
-  label,
-  hint,
-  error,
-  className,
-  children,
-}: {
-  id: string;
-  label: string;
-  hint?: string;
-  error?: string;
-  className?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className={cn("flex flex-col gap-2", className)}>
-      <Label htmlFor={id} className="font-mono text-micro uppercase tracking-[0.16em]">
-        {label}
-      </Label>
-      {children}
-      {error ? (
-        <p className="text-body-sm text-destructive">{error}</p>
-      ) : hint ? (
-        <p className="text-body-sm text-muted-foreground">{hint}</p>
-      ) : null}
-    </div>
-  );
-}

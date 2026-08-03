@@ -4,6 +4,7 @@ import { SocialIcon } from "@/components/shared/social-icons";
 import { Newsletter } from "@/components/shared/newsletter";
 import { PeakMark } from "@/components/layout/wordmark";
 import { Cta } from "@/components/shared/cta";
+import { Eyebrow } from "@/components/shared/section-heading";
 import { siteConfig, socialLinks } from "@/data/site";
 import { getToursByCategory } from "@/data/tours";
 
@@ -32,10 +33,9 @@ export function Footer() {
     <footer className="dark grain relative overflow-hidden bg-granite-950 text-snow-50">
       {/* Closing call. The last thing on every page is an invitation, not a sitemap. */}
       <div className="shell border-b border-white/10 py-section">
-        <p className="eyebrow flex items-center gap-3 text-snow-50/55">
-          <span aria-hidden="true" className="h-px w-8 bg-alpenglow-bright" />
+        <Eyebrow tone="bright" className="text-snow-50/55">
           Next departure
-        </p>
+        </Eyebrow>
         <div className="mt-7 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <h2 className="max-w-3xl text-display display-tight">
             Tell us where you want to stand, and we&apos;ll build the route to it.

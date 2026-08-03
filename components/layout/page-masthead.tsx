@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { ParallaxImage } from "@/components/motion/parallax";
 import { Reveal } from "@/components/motion/reveal";
 import { TextRevealOnLoad } from "@/components/motion/text-reveal";
+import { Eyebrow } from "@/components/shared/section-heading";
 import { cn } from "@/lib/utils";
 
 /**
@@ -56,10 +57,9 @@ export function PageMasthead({
 
       <div className="shell relative pb-14 pt-32 sm:pb-16 lg:pb-20">
         <Reveal duration={0.7} direction="none">
-          <p className="eyebrow flex items-center gap-3 text-snow-50/65">
-            <span aria-hidden="true" className="h-px w-8 bg-alpenglow-bright" />
+          <Eyebrow tone="bright" className="text-snow-50/65">
             {eyebrow}
-          </p>
+          </Eyebrow>
         </Reveal>
 
         <TextRevealOnLoad

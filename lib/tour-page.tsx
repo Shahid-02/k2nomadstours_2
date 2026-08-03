@@ -16,6 +16,7 @@ import { RelatedTours } from "@/sections/tour-detail/related-tours";
 import { Testimonials } from "@/sections/shared/testimonials";
 import { FaqAccordion } from "@/sections/shared/faq-accordion";
 import { StickyBookBar } from "@/components/layout/sticky-book-bar";
+import { JsonLd } from "@/components/shared/json-ld";
 import { getOutboundRoute } from "@/lib/route";
 import { getPublicVideos } from "@/lib/videos";
 import { siteConfig } from "@/data/site";
@@ -136,14 +137,8 @@ export function createTourRouteExports(category: TourCategory) {
 
     return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
-        />
+        <JsonLd data={jsonLd} />
+        <JsonLd data={breadcrumbs} />
 
         <TourHero tour={tour} />
 

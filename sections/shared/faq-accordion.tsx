@@ -8,6 +8,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/shared/section-heading";
 import { TextReveal } from "@/components/motion/text-reveal";
 import { TextLink } from "@/components/shared/cta";
+import { JsonLd } from "@/components/shared/json-ld";
 import { siteConfig } from "@/data/site";
 import type { FAQ } from "@/types/tour";
 
@@ -44,10 +45,7 @@ export function FaqAccordion({
 
   return (
     <section className="bg-background py-section">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <div className="shell grid gap-12 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>

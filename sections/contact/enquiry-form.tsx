@@ -5,12 +5,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Field } from "@/components/shared/field";
 import { bookingSchema, type BookingFormValues } from "@/lib/validations/booking";
 import { siteConfig } from "@/data/site";
-import { cn } from "@/lib/utils";
 
 export interface JourneyOption {
   slug: string;
@@ -100,7 +99,7 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
       noValidate
       className="plate grid gap-6 border bg-card p-6 hairline sm:grid-cols-2 sm:p-8"
     >
-      <EnquiryField
+      <Field
         className="sm:col-span-2"
         id="tourSlug"
         label="Which journey?"
@@ -124,18 +123,18 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
             </optgroup>
           ))}
         </select>
-      </EnquiryField>
+      </Field>
 
-      <EnquiryField
+      <Field
         className="sm:col-span-2"
         id="fullName"
         label="Full name"
         error={errors.fullName?.message}
       >
         <Input id="fullName" autoComplete="name" placeholder="Jane Doe" {...register("fullName")} />
-      </EnquiryField>
+      </Field>
 
-      <EnquiryField id="email" label="Email" error={errors.email?.message}>
+      <Field id="email" label="Email" error={errors.email?.message}>
         <Input
           id="email"
           type="email"
@@ -143,22 +142,22 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
           placeholder="you@example.com"
           {...register("email")}
         />
-      </EnquiryField>
+      </Field>
 
-      <EnquiryField id="phone" label="Phone or WhatsApp" error={errors.phone?.message}>
+      <Field id="phone" label="Phone or WhatsApp" error={errors.phone?.message}>
         <Input id="phone" type="tel" autoComplete="tel" placeholder="+1 555 000 0000" {...register("phone")} />
-      </EnquiryField>
+      </Field>
 
-      <EnquiryField
+      <Field
         id="preferredDateStart"
         label="Roughly when?"
         hint="An approximate date is fine"
         error={errors.preferredDateStart?.message}
       >
         <Input id="preferredDateStart" type="date" {...register("preferredDateStart")} />
-      </EnquiryField>
+      </Field>
 
-      <EnquiryField
+      <Field
         id="groupSize"
         label="How many of you?"
         error={errors.groupSize?.message}
@@ -170,9 +169,9 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
           max={20}
           {...register("groupSize", { valueAsNumber: true })}
         />
-      </EnquiryField>
+      </Field>
 
-      <EnquiryField
+      <Field
         className="sm:col-span-2"
         id="message"
         label="What do you want out of the trip?"
@@ -184,7 +183,7 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
           placeholder="We're two friends with a fortnight in August, comfortable at 4,000 m…"
           {...register("message")}
         />
-      </EnquiryField>
+      </Field>
 
       {submitError && (
         <p role="alert" className="text-body-sm text-destructive sm:col-span-2">
@@ -202,32 +201,3 @@ export function EnquiryForm({ journeys }: { journeys: JourneyOption[] }) {
   );
 }
 
-function EnquiryField({
-  id,
-  label,
-  hint,
-  error,
-  className,
-  children,
-}: {
-  id: string;
-  label: string;
-  hint?: string;
-  error?: string;
-  className?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className={cn("flex flex-col gap-2", className)}>
-      <Label htmlFor={id} className="font-mono text-micro uppercase tracking-[0.16em]">
-        {label}
-      </Label>
-      {children}
-      {error ? (
-        <p className="text-body-sm text-destructive">{error}</p>
-      ) : hint ? (
-        <p className="text-body-sm text-muted-foreground">{hint}</p>
-      ) : null}
-    </div>
-  );
-}
