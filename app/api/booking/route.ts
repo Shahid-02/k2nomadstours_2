@@ -5,8 +5,21 @@ import { allTours, tourHref } from "@/data/tours";
 import { siteConfig } from "@/data/site";
 import { buildBookingNotificationEmail } from "@/lib/emails/booking-notification";
 
+/** Sends mail on every accepted request, so it can never be prerendered. */
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function POST(request: Request) {
-  const body = await request.json();
+  // `request.json()` rejects on any non-JSON body. Uncaught, that escaped the
+  // handler and Next returned a 500 with a stack trace in the log — for input
+  // this endpoint should simply refuse.
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Malformed request body." }, { status: 400 });
+  }
+
   const parsed = bookingSchema.safeParse(body);
 
   if (!parsed.success) {

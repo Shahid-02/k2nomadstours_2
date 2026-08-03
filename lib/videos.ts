@@ -1,9 +1,16 @@
 import fs from "fs";
 import path from "path";
+import { cache } from "react";
 import type { TourVideo } from "@/types/tour";
 import { FALLBACK_VIDEO } from "@/data/videos";
 
-export function getPublicVideos(): TourVideo[] {
+/**
+ * Memoised per request/render pass. The scan is identical for all 21 tour
+ * pages, and `lib/tour-page.tsx` calls it from inside the page component —
+ * so without this it is synchronous disk I/O repeated on every render, and
+ * would sit on the request path the moment any tour route stops being static.
+ */
+export const getPublicVideos = cache((): TourVideo[] => {
   try {
     const videoDir = path.join(process.cwd(), "public", "video");
     if (!fs.existsSync(videoDir)) {
@@ -41,4 +48,4 @@ export function getPublicVideos(): TourVideo[] {
     console.error("Error reading public/video directory:", error);
     return [FALLBACK_VIDEO];
   }
-}
+});
