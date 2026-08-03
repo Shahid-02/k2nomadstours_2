@@ -20,7 +20,7 @@ export const rakaposhiBaseCampAndRushLakeTrek: Tour = {
     height: 1598,
   },
   gallery: [
-    { src: "/images/photos/Rush-lake1.jpg", alt: "Rush Lake at sunrise", width: 1200, height: 1800 },
+    { src: "/images/photos/Rush-Lake1.jpg", alt: "Rush Lake at sunrise", width: 1200, height: 1800 },
     // { src: "/images/optimized/ultar-peak.jpg", alt: "Ultar Peak rising above the Hunza Valley", width: 2400, height: 1800 },
     // { src: "/images/photos/Islamabad.jpeg", alt: "Islamabad city", width: 1600, height: 1200 },
     { src: "/images/photos/Minapin.jpg", alt: "Minapin Village", width: 1200, height: 1600 },
@@ -55,7 +55,7 @@ export const rakaposhiBaseCampAndRushLakeTrek: Tour = {
     { day: 8, title: "Hunza to Hopper Valley", activities: ["Drive to Hopper by jeep, 1–2 hours"], accommodation: "Hotel", image: { src: "/images/photos/hopper.jpg", alt: "Alpine meadow above Minapin on the route to Rakaposhi Base Camp", width: 1200, height: 800 } },
     { day: 9, title: "Hopper Valley to Bericho / Core", activities: ["Trek with panoramic views of Rakaposhi, Spantik, Ultar Sar, and Malubiting", "Trek: 5–6 hours"], accommodation: "Camping", image: { src: "/images/photos/Bericho.jpeg", alt: "Alpine meadow above Minapin on the route to Rakaposhi Base Camp", width: 1200, height: 800 } },
     { day: 10, title: "Bericho / Core to Rush Lake", activities: ["Early-morning trek to Pakistan's highest lake at 4,694m", "Trek: 6–7 hours"], accommodation: "Camping", image: { src: "/images/photos/Rush_lake.jpeg", alt: "An alpine lake among the mountains of northern Pakistan", width: 1200, height: 800 } },
-    { day: 11, title: "Rush Lake to Rush Peak (Optional)", activities: ["Early-morning trek to Rush Peak, ~5,100m, and back to Rush Lake the same day", "Rest day near the lake", "Trek: 3–4 hours"], accommodation: "Camping", image: { src: "/images/photos/Rush-lake1.jpg", alt: "An alpine lake among the mountains of northern Pakistan", width: 1200, height: 800 } },
+    { day: 11, title: "Rush Lake to Rush Peak (Optional)", activities: ["Early-morning trek to Rush Peak, ~5,100m, and back to Rush Lake the same day", "Rest day near the lake", "Trek: 3–4 hours"], accommodation: "Camping", image: { src: "/images/photos/Rush-Lake1.jpg", alt: "An alpine lake among the mountains of northern Pakistan", width: 1200, height: 800 } },
     { day: 12, title: "Rush Lake to Bericho / Core", activities: ["Trek back down"], accommodation: "Camping", image: { src: "/images/photos/Rush-Lake-Trek-1.jpg", alt: "An alpine lake among the mountains of northern Pakistan", width: 1200, height: 800 } },
     { day: 13, title: "Bericho / Core to Hopper Valley", activities: ["Trek through to the valley"], accommodation: "Hotel", image: { src: "/images/photos/hoppervallage.jpeg", alt: "An alpine lake among the mountains of northern Pakistan", width: 1200, height: 800 } },
     { day: 14, title: "Hopper to Upper Hunza", activities: ["Drive with visits to Gulmit, Hussaini Bridge, Passu Cones, and Borit Lake"], accommodation: "Homestay", image: { src: "/images/photos/Passu_Cones,_Karakoram_range,_Gilgit_Baltistan,_Pakistan.jpg", alt: "Passu Cones rising above the Karakoram valley in Upper Hunza", width: 1200, height: 800 } },

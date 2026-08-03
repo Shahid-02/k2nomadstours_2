@@ -20,7 +20,10 @@ export const discoverHunzaValley: Tour = {
     height: 1594,
   },
   gallery: [
-    { src: "/video/hunza-2.mp4", alt: "Hunza Valley", width: 1200, height: 900 }
+    { src: "/images/optimized/hunza-fort-blossoms.jpg", alt: "Baltit Fort above Karimabad surrounded by apricot blossom", width: 2400, height: 1600 },
+    { src: "/images/optimized/ultar-peak.jpg", alt: "Ultar Peak towering above Karimabad in the Hunza Valley", width: 2400, height: 1800 },
+    { src: "/images/optimized/borith-lake.jpg", alt: "Still morning light on Borith Lake, where the Patundas trek begins", width: 2400, height: 1800 },
+    { src: "/images/optimized/passu-cones-alt.jpg", alt: "The Passu Cones seen from the Karakoram Highway near Ghulkin", width: 2400, height: 1600 },
   ],
   highlights: [
     { icon: "landmark", text: "Baltit Fort, Altit Fort, and Wakhi heritage" },
