@@ -22,9 +22,17 @@ export function getPublicVideos(): TourVideo[] {
           .replace(/[-_]/g, " ")
           .replace(/\b\w/g, (char) => char.toUpperCase());
 
+        // Convention: `hunza.mp4` is postered by `hunza-poster.jpg` sitting
+        // beside it. Without this the scan branch returns posterless videos
+        // and FALLBACK_VIDEO's poster is only ever seen when public/video is
+        // missing entirely — which is never, in practice.
+        const posterFile = `${nameWithoutExt}-poster.jpg`;
+        const poster = files.includes(posterFile) ? `/video/${posterFile}` : undefined;
+
         return {
           src: `/video/${file}`,
           title: formattedTitle || "Expedition Video",
+          ...(poster ? { poster } : {}),
         };
       });
 

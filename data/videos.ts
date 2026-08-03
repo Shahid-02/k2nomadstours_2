@@ -11,4 +11,10 @@ import type { TourVideo } from "@/types/tour";
 export const FALLBACK_VIDEO: TourVideo = {
   src: "/video/hunza.mp4",
   title: "Hunza Expedition Footage",
+  /**
+   * Painted while the first frames arrive. Without it the tile is a flat
+   * `bg-granite-900` rectangle until playback starts, which on a slow
+   * connection is the first thing a visitor sees of the route.
+   */
+  poster: "/video/hunza-poster.jpg",
 };
