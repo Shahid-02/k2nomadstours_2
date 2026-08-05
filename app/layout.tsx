@@ -58,6 +58,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "7zKWmUh_dqAfR08X3F9ALGOjF8Ds1K8bqu1dxv9SMgQ",
+  },
 };
 
 export const viewport: Viewport = {
