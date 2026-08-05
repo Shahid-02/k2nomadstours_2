@@ -2,7 +2,7 @@ import type { SocialLink } from "@/types/tour";
 
 export const siteConfig = {
   name: "K2 Nomads Tours",
-  url: "https://www.k2nomadstours.com",
+  url: "https://k2nomadstours-five.vercel.app", // ✅ New URL
   description:
     "Nomadic, cultural, and high-altitude tours across Pakistan — from ancient civilizations and Sufi shrines to the Karakoram's highest peaks.",
   email: "k2nomadstours@gmail.com",
