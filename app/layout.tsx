@@ -79,9 +79,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${instrument.variable} ${geistMono.variable} h-full`}
+      className={`${bricolage.variable} ${instrument.variable} ${geistMono.variable}`}
     >
-      <body className="flex min-h-full flex-col overflow-x-clip font-sans">
+      <body className="flex min-h-screen flex-col overflow-x-clip font-sans">
         {/* Scroll reveals are rendered as inline `opacity:0` during SSR. Without
             JS those elements would never un-hide, so the whole page would read
             as blank. This puts every one of them back. */}
